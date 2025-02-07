@@ -1,6 +1,6 @@
 ---
 description: >-
-  This event fires off when a player is loaded by the common framework events  
+  This event fires off when a player is loaded by the common framework events
   from qb/qbx/esx
 ---
 

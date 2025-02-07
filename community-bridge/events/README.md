@@ -1,2 +1,6 @@
+---
+icon: camera-cctv
+---
+
 # Events
 
