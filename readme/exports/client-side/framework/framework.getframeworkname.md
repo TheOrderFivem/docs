@@ -1,7 +1,3 @@
----
-description: This export will return a string for framework name
----
-
 # Framework.GetFrameworkName
 
 ```lua

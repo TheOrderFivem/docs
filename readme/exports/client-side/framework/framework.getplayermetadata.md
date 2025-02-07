@@ -1,7 +1,3 @@
----
-description: This export will return the value of the requested metadata key.
----
-
 # Framework.GetPlayerMetaData
 
 ```lua

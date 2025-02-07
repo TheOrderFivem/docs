@@ -1,7 +1,3 @@
----
-description: This will return a table based on the framework inventory
----
-
 # Framework.GetPlayerInventory
 
 ```

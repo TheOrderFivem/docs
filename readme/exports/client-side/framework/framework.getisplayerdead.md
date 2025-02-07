@@ -1,7 +1,3 @@
----
-description: This will return a bool if a player is dead/last stand
----
-
 # Framework.GetIsPlayerDead
 
 ```

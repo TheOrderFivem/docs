@@ -1,7 +1,3 @@
----
-description: This has 4 returns, job name, job label, job grade name,  job grade level
----
-
 # Framework.GetPlayerJob
 
 ```

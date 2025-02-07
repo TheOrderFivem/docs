@@ -1,7 +1,3 @@
----
-description: This export will return a table of the player data.
----
-
 # Framework.GetPlayerData
 
 ```lua

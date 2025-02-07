@@ -1,7 +1,3 @@
----
-description: This has 2 return values, first being Firstname, second being Lastname
----
-
 # Framework.GetPlayerName
 
 ```

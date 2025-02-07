@@ -1,7 +1,3 @@
----
-description: This will return a string of the players identifier
----
-
 # Framework.GetPlayerIdentifier
 
 ```
