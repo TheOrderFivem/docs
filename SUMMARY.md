@@ -1,3 +1,17 @@
 # Table of contents
 
 * [Community Bridge](README.md)
+  * [Install](readme/install/README.md)
+    * [Guide](readme/install/guide.md)
+  * [Exports](readme/exports/README.md)
+    * [Client Side](readme/exports/client-side/README.md)
+      * [example1](readme/exports/client-side/example1.md)
+    * [Server Side](readme/exports/server-side/README.md)
+      * [example1](readme/exports/server-side/example1.md)
+  * [Events](readme/events/README.md)
+    * [Client Side](readme/events/client-side/README.md)
+      * [OnPlayerLoaded](readme/events/client-side/onplayerloaded.md)
+      * [OnPlayerUnload](readme/events/client-side/onplayerunload.md)
+      * [OnPlayerJobUpdate](readme/events/client-side/onplayerjobupdate.md)
+    * [Server Side](readme/events/server-side/README.md)
+      * [OnPlayerUnload](readme/events/server-side/onplayerunload.md)
