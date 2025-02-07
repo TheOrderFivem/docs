@@ -1,4 +1,4 @@
-# Framework.GetPlayerData
+# GetPlayerData
 
 ```lua
 local Bridge = exports.community_bridge:Bridge()

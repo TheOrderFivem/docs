@@ -1,4 +1,4 @@
-# Framework.GetIsPlayerDead
+# GetIsPlayerDead
 
 ```
 local Bridge = exports.community_bridge:Bridge()

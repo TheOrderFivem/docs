@@ -1,4 +1,4 @@
-# Framework.GetFrameworkName
+# GetFrameworkName
 
 ```lua
 local Bridge = exports.community_bridge:Bridge()

@@ -1,4 +1,4 @@
-# Framework.GetPlayerInventory
+# GetPlayerInventory
 
 ```
 local Bridge = exports.community_bridge:Bridge()

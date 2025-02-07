@@ -1,4 +1,4 @@
-# Framework.GetPlayerJob
+# GetPlayerJob
 
 ```
 local Bridge = exports.community_bridge:Bridge()
