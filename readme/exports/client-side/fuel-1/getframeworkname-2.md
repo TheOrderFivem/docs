@@ -1,0 +1,10 @@
+# CreatePed
+
+
+
+<pre class="language-lua"><code class="lang-lua">local Bridge = exports.community_bridge:Bridge()
+
+<strong>Bridge.Utility.CreatePed(model, coords, heading, networked, clothing)
+</strong>
+</code></pre>
+
