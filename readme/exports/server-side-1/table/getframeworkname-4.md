@@ -1,10 +1,10 @@
-# RandomUpper
+# GetClosest
 
 
 
 <pre class="language-lua"><code class="lang-lua">local Bridge = exports.community_bridge:Bridge()
 
-<strong>Bridge.Ids.RandomUpper(table, length)
+<strong>Bridge.Table.GetClosest(coords, table)
 </strong>
 
 </code></pre>
