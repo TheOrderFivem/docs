@@ -2,7 +2,7 @@
 
 * [Community Bridge](README.md)
   * [Install](readme/install/README.md)
-    * [Guide](readme/install/guide.md)
+    * [Install](readme/install/guide.md)
   * [Exports](readme/exports/README.md)
     * [Client Side](readme/exports/client-side/README.md)
       * [Doorlock](readme/exports/client-side/doorlock/README.md)
