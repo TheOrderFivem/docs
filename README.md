@@ -1,9 +1,9 @@
 ---
+icon: bridge-water
 description: >-
   The Community Bridge is a versatile integration tool for FiveM, designed to  
   seamlessly connect and interact with multiple frameworks and systems.  
   Compatible with ESX, Qb-core, and forks such as qb
-icon: bridge-water
 ---
 
 # Community Bridge
@@ -26,6 +26,5 @@ Features:
   * Loot Table Management
   * Group Interactions
   * Base Game Natives
-  * File Read/Write/Load
 
 This bridge simplifies interactions between scripts.
