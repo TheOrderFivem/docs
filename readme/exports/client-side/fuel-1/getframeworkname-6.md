@@ -2,9 +2,13 @@
 
 
 
-<pre class="language-lua"><code class="lang-lua">local Bridge = exports.community_bridge:Bridge()
+```lua
+local Bridge = exports.community_bridge:Bridge()
 
-<strong>Bridge.Utility.RemoveBlip(blip)
-</strong>
-</code></pre>
+-- blip would be the blip handle
+
+local success = Bridge.Utility.RemoveBlip(blip)
+
+-- returns bool if removal was sucessful or not
+```
 

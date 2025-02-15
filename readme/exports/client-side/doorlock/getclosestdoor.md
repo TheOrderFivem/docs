@@ -3,8 +3,8 @@
 ```lua
 local Bridge = exports.community_bridge:Bridge()
 
-local door = Bridge.Doorlock.GetClosestDoor()
+local thisDoor = Bridge.Doorlock.GetClosestDoor()
 
-print(door)  -- will return the closest door id
+print(thisDoor )  -- will return the closest door id as a number
 ```
 

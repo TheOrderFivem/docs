@@ -2,14 +2,14 @@
 description: This will get the fuel of a vehicle
 ---
 
-# Fuel.GetFuel
+# GetFuel
 
-```
+```lua
 local Bridge = exports.community_bridge:Bridge()
 
 
-local exampleWithVehicle = GetVehiclePedIsIn(PlayerPedId(), false)
-local fuelLevel = Bridge.Fuel.GetFuel(exampleWithVehicle)
-print(fuelLevel) -- returns the fuel level in the vehicle
+local myVehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+local fuelLevel = Bridge.Fuel.GetFuel(myVehicle)
 
+print(fuelLevel) -- returns the fuel level in the vehicle
 ```
