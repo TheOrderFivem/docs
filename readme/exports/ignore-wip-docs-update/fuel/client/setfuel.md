@@ -1,12 +1,15 @@
 # SetFuel
 
-```
+```lua
 local Bridge = exports.community_bridge:Bridge()
 
+---This will set the fuel level of the vehicle.
+---@param vehicle number The vehicle entity ID.
+---@param fuel number The fuel level to set.
+---@return nil
 
 local myVehicle = GetVehiclePedIsIn(PlayerPedId(), false)
 local fuel = 100
--- type of fuel is optional but is there just in case (for some fuel systems, it will defualt without the param)
-Bridge.Fuel.SetFuel(myVehicle , fuel, type)
+Bridge.Fuel.SetFuel(myVehicle, fuel)
 ```
 

@@ -1,7 +1,10 @@
 # GetClosestDoor
 
-```
+```lua
 local Bridge = exports.community_bridge:Bridge()
+
+---This will get the closest door to the ped
+---@return string | nil
 
 local thisDoor = Bridge.Doorlock.GetClosestDoor()
 

@@ -147,6 +147,8 @@
       * [Doorlock](readme/exports/ignore-wip-docs-update/doorlock/README.md)
         * [Client](readme/exports/ignore-wip-docs-update/doorlock/client/README.md)
           * [GetClosestDoor](readme/exports/ignore-wip-docs-update/doorlock/client/getclosestdoor.md)
+        * [Server](readme/exports/ignore-wip-docs-update/doorlock/server/README.md)
+          * [ToggleDoorLock](readme/exports/ignore-wip-docs-update/doorlock/server/toggledoorlock.md)
       * [Fuel](readme/exports/ignore-wip-docs-update/fuel/README.md)
         * [Client](readme/exports/ignore-wip-docs-update/fuel/client/README.md)
           * [GetFuel](readme/exports/ignore-wip-docs-update/fuel/client/getfuel.md)

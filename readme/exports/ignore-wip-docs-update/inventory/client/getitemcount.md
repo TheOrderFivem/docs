@@ -1,6 +1,6 @@
 # GetItemCount
 
-```
+```lua
 local Bridge = exports.community_bridge:Bridge()
 
 Bridge.Inventory.GetItemCount(item)
