@@ -1,0 +1,6 @@
+---
+icon: cash-register
+---
+
+# Shops
+
