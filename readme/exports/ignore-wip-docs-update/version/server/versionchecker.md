@@ -1,6 +1,6 @@
 # VersionChecker
 
-```
+```lua
 local Bridge = exports.community_bridge:Bridge()
 
 Bridge.Version.VersionChecker(repoPath, tebex)

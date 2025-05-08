@@ -183,8 +183,6 @@
           * [AddThirst](readme/exports/ignore-wip-docs-update/framework/server/addthirst.md)
           * [GetHunger](readme/exports/ignore-wip-docs-update/framework/server/gethunger.md)
           * [GetThirst](readme/exports/ignore-wip-docs-update/framework/server/getthirst.md)
-          * [GetPlayerPhone ??](readme/exports/ignore-wip-docs-update/framework/server/getplayerphone.md)
-          * [GetPlayerGang ??](readme/exports/ignore-wip-docs-update/framework/server/getplayergang.md)
           * [GetPlayersByJob](readme/exports/ignore-wip-docs-update/framework/server/getplayersbyjob.md)
           * [GetPlayerJob](readme/exports/ignore-wip-docs-update/framework/server/getplayerjob.md)
           * [SetPlayerJob](readme/exports/ignore-wip-docs-update/framework/server/setplayerjob.md)
