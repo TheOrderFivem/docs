@@ -1,6 +1,0 @@
----
-icon: cloud-bolt
----
-
-# Weather
-

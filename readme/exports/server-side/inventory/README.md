@@ -1,6 +1,0 @@
----
-icon: backpack
----
-
-# Inventory
-

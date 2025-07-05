@@ -1,6 +1,0 @@
----
-icon: table-picnic
----
-
-# Tables
-
