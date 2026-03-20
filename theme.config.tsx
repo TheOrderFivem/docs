@@ -49,7 +49,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/TheOrderFivem/community_bridge/blob/main/docs',
   footer: {
-    text: (
+    content: (
       <span>
         MIT {new Date().getFullYear()} © Community Bridge - The Order Of The Sacred Framework
       </span>
@@ -65,10 +65,9 @@ const config: DocsThemeConfig = {
   toc: {
     backToTop: true,
   },
-  useNextSeoProps: useNextSeoProps,
   banner: {
     key: 'community-bridge-release',
-    text: (
+    content: (
       <a href="https://github.com/TheOrderFivem/community_bridge/releases" target="_blank">
         🎉 Community Bridge is available! Check out the latest release →
       </a>
