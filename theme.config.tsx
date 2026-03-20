@@ -11,7 +11,7 @@ function useHead() {
   return (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+      <link rel="icon" href="https://avatars.githubusercontent.com/u/192999457?s=32&v=4" type="image/png" />
       <meta httpEquiv="Content-Language" content="en" />
       <meta name="description" content={description} />
       <meta name="og:title" content={title} />
@@ -21,23 +21,14 @@ function useHead() {
   )
 }
 
-function useNextSeoProps() {
-  const { asPath } = useRouter()
-  const arr = asPath.replace(/[-_]/g, ' ').split('/')
-  const category = (arr[1][0] !== '#' && arr[1]) || 'Bridge Docs'
-  const rawTitle = arr[arr.length - 1]
-  const title = /[a-z]/.test(rawTitle) && /[A-Z]/.test(rawTitle) ? rawTitle : '%s'
-
-  return {
-    titleTemplate: `${title} - ${
-      rawTitle === category ? 'Documentation' : category.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())
-    }`,
-  }
-}
-
 const config: DocsThemeConfig = {
   logo: (
-    <span style={{ fontWeight: 700, fontSize: '1.1rem' }}>
+    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '1.1rem' }}>
+      <img
+        src="https://avatars.githubusercontent.com/u/192999457?s=200&v=4"
+        alt="The Order"
+        style={{ width: 28, height: 28, borderRadius: '50%' }}
+      />
       Community Bridge
     </span>
   ),

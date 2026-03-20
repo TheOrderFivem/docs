@@ -1,0 +1,19 @@
+# Inventory — Compatibility
+
+## Supported Inventory Resources
+
+| Resource | Notes |
+|----------|-------|
+| `codem-inventory` | Full support |
+| `core_inventory` | Full support |
+| `jpr-inventory` | Full support |
+| `origen_inventory` | Full support |
+| `ox_inventory` | Full support |
+| `ps-inventory` | Full support |
+| `qb-inventory` | Full support |
+| `qs-inventory` | Full support |
+| `tgiann-inventory` | Full support |
+
+## Framework Fallback
+
+If none of the supported inventory resources are detected, Community Bridge falls back to the **framework's built-in inventory functions** (`Framework.AddItem`, `Framework.RemoveItem`, etc.). This means item operations will still work on any ESX or QB-based server even without a dedicated inventory resource.

@@ -1,0 +1,12 @@
+# Zones — Compatibility
+
+## Supported Resources
+
+| Resource | Notes |
+|----------|-------|
+| `ox_lib` | Full support (ox_lib zones) |
+| `PolyZone` | Full support — uses ox_lib if available, otherwise native PolyZone |
+
+> **Note:** PolyZone checks that `ox_lib` is not running to avoid conflicts. Only one zone system will be active at a time.
+
+> **Important:** This module has **no fallback**. One of the supported zone resources must be running on your server.
