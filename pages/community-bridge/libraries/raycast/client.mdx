@@ -1,0 +1,38 @@
+# Raycast
+The Raycast library provides raycasting utilities for detecting entities and surfaces.
+
+**Side:** Client
+
+## Functions
+
+### Cam
+
+Performs a raycast from the gameplay camera forward.
+
+```lua
+local hit, entityHit, coords, surfaceNormal, materialHash = Bridge.Raycast.Cam(distance, flags)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| distance | number | Maximum ray distance |
+| flags | number | Entity type flags (optional) |
+
+**Returns:** hit (boolean), entityHit (number), coords (vector3), surfaceNormal (vector3), materialHash (number)
+
+### Entity
+
+Performs a raycast from one position to another.
+
+```lua
+local hit, entityHit, coords, surfaceNormal, materialHash = Bridge.Raycast.Entity(startPos, endPos, flags, ignoreEntity)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| startPos | vector3 | Ray start position |
+| endPos | vector3 | Ray end position |
+| flags | number | Entity type flags |
+| ignoreEntity | number | Entity to ignore (optional) |
+
+**Returns:** hit (boolean), entityHit (number), coords (vector3), surfaceNormal (vector3), materialHash (number)

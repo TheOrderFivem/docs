@@ -1,0 +1,125 @@
+# Skills — Server
+
+## Create
+
+Creates a skill definition.
+
+```lua
+Bridge.Skills.Create(skillName, skillData)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| skillName | string | Skill name |
+| skillData | table | Skill definition data |
+
+## GetSkillLevel
+
+Returns a player's level for a skill.
+
+```lua
+local level = Bridge.Skills.GetSkillLevel(src, skillName)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| skillName | string | Skill name |
+
+## GetXP
+
+Returns a player's current XP for a skill.
+
+```lua
+local xp = Bridge.Skills.GetXP(src, skillName)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| skillName | string | Skill name |
+
+## AddXP
+
+Adds XP to a player's skill.
+
+```lua
+Bridge.Skills.AddXP(src, skillName, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| skillName | string | Skill name |
+| amount | number | XP to add |
+
+## SetSkillLevel
+
+Sets a player's skill level directly.
+
+```lua
+Bridge.Skills.SetSkillLevel(src, skillName, level)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| skillName | string | Skill name |
+| level | number | Level to set |
+
+## SetXP
+
+Sets a player's XP directly.
+
+```lua
+Bridge.Skills.SetXP(src, skillName, xp)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| skillName | string | Skill name |
+| xp | number | XP to set |
+
+## GetXPForLevel
+
+Returns the total XP required to reach a given level.
+
+```lua
+local xp = Bridge.Skills.GetXPForLevel(level)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| level | number | Target level |
+
+## GetXPRequiredForLevel
+
+Returns the additional XP needed to go from current level to next.
+
+```lua
+local xp = Bridge.Skills.GetXPRequiredForLevel(level)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| level | number | Current level |
+
+## GetScaledXP
+
+Returns XP scaled according to the skill's scaling formula.
+
+```lua
+local scaled = Bridge.Skills.GetScaledXP(src, skillName, amount)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| skillName | string | Skill name |
+| amount | number | Base XP amount |

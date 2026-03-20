@@ -1,0 +1,140 @@
+# Table Utilities
+The Table library provides common table manipulation helpers.
+
+**Side:** Shared
+
+## Functions
+
+### DeepCopy
+
+Creates a deep copy of a table, including nested tables.
+
+```lua
+local copy = Bridge.Tables.DeepCopy(original)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| original | table | Table to copy |
+
+### Contains
+
+Checks if a table contains a specific value.
+
+```lua
+local found = Bridge.Tables.Contains(tbl, value)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| tbl | table | Table to search |
+| value | any | Value to find |
+
+### Count
+
+Returns the number of entries in a table (works for non-sequential tables).
+
+```lua
+local count = Bridge.Tables.Count(tbl)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| tbl | table | Table to count |
+
+### Merge
+
+Merges two tables together. Values from the second table override the first.
+
+```lua
+local merged = Bridge.Tables.Merge(t1, t2)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| t1 | table | Base table |
+| t2 | table | Table to merge in |
+
+### Keys
+
+Returns an array of all keys in a table.
+
+```lua
+local keys = Bridge.Tables.Keys(tbl)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| tbl | table | Source table |
+
+### Values
+
+Returns an array of all values in a table.
+
+```lua
+local values = Bridge.Tables.Values(tbl)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| tbl | table | Source table |
+
+### Filter
+
+Returns a new table containing only entries that pass a filter function.
+
+```lua
+local filtered = Bridge.Tables.Filter(tbl, fn)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| tbl | table | Source table |
+| fn | function | Filter function `(value, key) -> boolean` |
+
+### Map
+
+Returns a new table with each value transformed by a function.
+
+```lua
+local mapped = Bridge.Tables.Map(tbl, fn)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| tbl | table | Source table |
+| fn | function | Transform function `(value, key) -> newValue` |
+
+### Find
+
+Returns the first value (and key) that matches a predicate.
+
+```lua
+local value, key = Bridge.Tables.Find(tbl, fn)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| tbl | table | Source table |
+| fn | function | Predicate function `(value, key) -> boolean` |
+
+### Flatten
+
+Flattens a nested table into a single-level table.
+
+```lua
+local flat = Bridge.Tables.Flatten(tbl)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| tbl | table | Nested table to flatten |

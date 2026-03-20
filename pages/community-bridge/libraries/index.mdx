@@ -1,0 +1,45 @@
+﻿# Libraries
+
+Libraries are utility modules built into Community Bridge. They provide common functionality for game scripting that isn't specific to any framework.
+
+Libraries are accessed through the `cLib` table or via the Bridge:
+
+```lua
+local Bridge = exports['community_bridge']:Bridge()
+
+-- Client libraries
+Bridge.Entity.Create(...)
+Bridge.Point.Create(...)
+Bridge.Marker.Create(...)
+Bridge.Anim.Play(...)
+
+-- Or via cLib export
+local cLib = exports['community_bridge']:cLib()
+cLib.Callback.Trigger(...)
+cLib.Math.Round(...)
+```
+
+## Available Libraries
+
+| Library | Side | Description |
+|---------|------|-------------|
+| [Animation](/community-bridge/libraries/anim) | Client | Animation playback and management |
+| [Callback](/community-bridge/libraries/callback) | Shared | Client-server callback system |
+| [Cutscenes](/community-bridge/libraries/cutscenes) | Client | Cutscene creation and playback |
+| [Entities](/community-bridge/libraries/entities) | Client & Server | Entity spawning and lifecycle management |
+| [IDs](/community-bridge/libraries/ids) | Shared | Unique ID generation |
+| [Logging](/community-bridge/libraries/logs) | Server | Structured logging with webhooks |
+| [Markers](/community-bridge/libraries/markers) | Client & Server | 3D marker creation |
+| [Math](/community-bridge/libraries/math) | Shared | Math utilities (round, clamp, lerp, etc.) |
+| [Particles](/community-bridge/libraries/particles) | Client | Particle effect management |
+| [Placers](/community-bridge/libraries/placers) | Client | Object placement systems |
+| [Points](/community-bridge/libraries/point) | Client | Distance-based point system |
+| [Raycast](/community-bridge/libraries/raycast) | Client | Raycasting utilities |
+| [Scaleform](/community-bridge/libraries/scaleform) | Client | Scaleform movie rendering |
+| [Shells](/community-bridge/libraries/shells) | Client & Server | Interior shell system |
+| [SQL](/community-bridge/libraries/sql) | Server | Database query wrapper |
+| [Table Utilities](/community-bridge/libraries/table) | Shared | Table manipulation helpers |
+| [Utility](/community-bridge/libraries/utility) | Client | Model loading, command keys, etc. |
+| [Vehicles](/community-bridge/libraries/vehicles) | Client | Vehicle spawning and management |
+| [Easing / LA](/community-bridge/libraries/la) | Shared | Easing functions and linear algebra |
+| [Prints](/community-bridge/libraries/prints) | Shared | Formatted print utilities |

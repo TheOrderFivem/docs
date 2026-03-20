@@ -1,0 +1,59 @@
+# Particles
+The Particle library manages particle effect (PTFX) playback.
+
+**Side:** Client
+
+## Functions
+
+### Play
+
+Plays a particle effect at a location or on an entity.
+
+```lua
+local handle = Bridge.Particle.Play(options)
+-- Returns: number (particle handle)
+```
+
+#### Options
+
+```lua
+-- At a position
+Bridge.Particle.Play({
+    dict = 'core',
+    name = 'ent_sht_flame',
+    coords = vector3(100.0, 200.0, 30.0),
+    rotation = vector3(0.0, 0.0, 0.0),
+    scale = 1.0,
+    duration = 5000
+})
+
+-- On an entity
+Bridge.Particle.Play({
+    dict = 'core',
+    name = 'ent_sht_flame',
+    entity = entityHandle,
+    offset = vector3(0.0, 0.0, 0.5),
+    rotation = vector3(0.0, 0.0, 0.0),
+    scale = 1.0
+})
+```
+
+### Stop
+
+Stops a particle effect.
+
+```lua
+Bridge.Particle.Stop(handle)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| handle | number | Particle handle from Play |
+
+### StopAll
+
+Stops all active particle effects.
+
+```lua
+Bridge.Particle.StopAll()
+```

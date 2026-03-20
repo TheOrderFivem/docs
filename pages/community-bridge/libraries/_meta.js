@@ -1,0 +1,20 @@
+export default {
+  index: 'Overview',
+  anim: 'Animation',
+  callback: 'Callback',
+  cutscenes: 'Cutscenes',
+  entities: 'Entities',
+  ids: 'IDs',
+  logs: 'Logging',
+  markers: 'Markers',
+  math: 'Math',
+  particles: 'Particles',
+  placers: 'Placers',
+  point: 'Points',
+  raycast: 'Raycast',
+  scaleform: 'Scaleform',
+  table: 'Table Utilities',
+  utility: 'Utility',
+  la: 'Easing / Linear Algebra',
+  prints: 'Prints'
+}

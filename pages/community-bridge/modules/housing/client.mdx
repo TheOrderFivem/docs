@@ -1,0 +1,15 @@
+# Housing
+The Housing module provides events for housing system integration.
+
+## Client Events
+
+### community_bridge:Client:OnPlayerInside
+
+Fired when a player enters or exits a house/property.
+
+```lua
+RegisterNetEvent('community_bridge:Client:OnPlayerInside', function(isInside, propertyData)
+    -- isInside: boolean
+    -- propertyData: table (property info, may vary by housing resource)
+end)
+```

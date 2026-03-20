@@ -1,0 +1,47 @@
+# Modules
+
+Modules are bridged APIs that wrap framework-specific resources behind a single interface. Community Bridge auto-detects which resource you have installed and loads the correct implementation.
+
+## Available Modules
+
+| Module | Side | Description |
+|--------|------|-------------|
+| [Framework](/community-bridge/modules/framework) | Client & Server | Player data, jobs, metadata, account balances |
+| [Inventory](/community-bridge/modules/inventory) | Client & Server | Items, stashes, shops, metadata |
+| [Banking](/community-bridge/modules/banking) | Server | Account money management |
+| [Boss Menu](/community-bridge/modules/bossmenu) | Client & Server | Job management menus |
+| [Clothing](/community-bridge/modules/clothing) | Client & Server | Appearance menus and data |
+| [Dialogue](/community-bridge/modules/dialogue) | Client | NPC dialogue system |
+| [Dispatch](/community-bridge/modules/dispatch) | Client & Server | Alert dispatch system |
+| [Doorlock](/community-bridge/modules/doorlock) | Client & Server | Door lock management |
+| [Fuel](/community-bridge/modules/fuel) | Client | Vehicle fuel get/set |
+| [HelpText](/community-bridge/modules/helptext) | Client & Server | On-screen help text |
+| [Housing](/community-bridge/modules/housing) | Client | Housing system events |
+| [Input](/community-bridge/modules/input) | Client | Input dialog prompts |
+| [Locales](/community-bridge/modules/locales) | Shared | Localized string translations |
+| [Menu](/community-bridge/modules/menu) | Client | Context/list menus |
+| [Notify](/community-bridge/modules/notify) | Client & Server | Notifications |
+| [Phone](/community-bridge/modules/phone) | Client & Server | Phone emails |
+| [Progress Bar](/community-bridge/modules/progressbar) | Client | Progress bar UI |
+| [Shops](/community-bridge/modules/shops) | Client & Server | Shop creation and opening |
+| [Skills](/community-bridge/modules/skills) | Client & Server | XP and skill levels |
+| [Target](/community-bridge/modules/target) | Client | Targeting zones and entities |
+| [Vehicle Key](/community-bridge/modules/vehiclekey) | Client | Vehicle key management |
+| [Version](/community-bridge/modules/version) | Server | Version checking |
+| [Weather](/community-bridge/modules/weather) | Client | Weather sync toggle |
+| [Zones](/community-bridge/modules/zones) | Client | Zone creation and management |
+
+## Usage Pattern
+
+```lua
+local Bridge = exports['community_bridge']:Bridge()
+
+-- Access any module
+Bridge.Framework.GetPlayerName()
+Bridge.Inventory.AddItem(source, 'bread', 1)
+Bridge.Notify.SendNotification(source, 'Title', 'Message', 'success', 5000)
+
+-- Or get a single module
+local Inventory = exports['community_bridge']:Inventory()
+Inventory.AddItem(source, 'bread', 1)
+```

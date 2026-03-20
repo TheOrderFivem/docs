@@ -1,0 +1,30 @@
+# Vehicle Key
+The VehicleKey module provides client-side vehicle key management. Bridges qb-vehiclekeys, MrNewbVehicleKeys, wasabi_carlock, and others.
+
+## Client Functions
+
+### GiveKeys
+
+Gives keys for a vehicle to the local player.
+
+```lua
+Bridge.VehicleKey.GiveKeys(vehicle, plate)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| vehicle | number | Vehicle entity handle |
+| plate | string | Vehicle plate text |
+
+### RemoveKeys
+
+Removes keys for a vehicle from the local player.
+
+```lua
+Bridge.VehicleKey.RemoveKeys(vehicle, plate)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| vehicle | number | Vehicle entity handle |
+| plate | string | Vehicle plate text |

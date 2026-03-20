@@ -1,0 +1,278 @@
+# Inventory — Server
+
+## Functions
+
+### AddItem
+
+Adds an item to a player's inventory.
+
+```lua
+Bridge.Inventory.AddItem(src, item, amount, metadata, slot)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| item | string | Item name |
+| amount | number | Amount to add |
+| metadata | table | Item metadata (optional) |
+| slot | number | Target slot (optional) |
+
+### RemoveItem
+
+Removes an item from a player's inventory.
+
+```lua
+Bridge.Inventory.RemoveItem(src, item, amount, metadata, slot)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| item | string | Item name |
+| amount | number | Amount to remove |
+| metadata | table | Item metadata (optional) |
+| slot | number | Slot to remove from (optional) |
+
+### GetItemCount
+
+Returns the count of a specific item in a player's inventory.
+
+```lua
+local count = Bridge.Inventory.GetItemCount(src, item, metadata)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| item | string | Item name |
+| metadata | table | Item metadata filter (optional) |
+
+### HasItem
+
+Checks if a player has a minimum amount of an item.
+
+```lua
+local has = Bridge.Inventory.HasItem(src, item, amount)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| item | string | Item name |
+| amount | number | Minimum amount (optional, default 1) |
+
+### CanCarryItem
+
+Checks if a player can carry an additional amount of an item.
+
+```lua
+local canCarry = Bridge.Inventory.CanCarryItem(src, item, amount)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| item | string | Item name |
+| amount | number | Amount to check |
+
+### GetPlayerInventory
+
+Returns a player's full inventory.
+
+```lua
+local inventory = Bridge.Inventory.GetPlayerInventory(src)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetItemBySlot
+
+Returns the item in a specific inventory slot.
+
+```lua
+local item = Bridge.Inventory.GetItemBySlot(src, slot)
+-- Returns: table | nil
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| slot | number | Slot number |
+
+### SetMetadata
+
+Sets metadata on an item in a specific slot.
+
+```lua
+Bridge.Inventory.SetMetadata(src, slot, metadata)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| slot | number | Slot number |
+| metadata | table | Metadata to set |
+
+### GetItemInfo
+
+Returns item definition data for a given item name.
+
+```lua
+local info = Bridge.Inventory.GetItemInfo(item)
+-- Returns: table { name, label, weight, ... }
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| item | string | Item name |
+
+### Items
+
+Returns a table of all registered items.
+
+```lua
+local items = Bridge.Inventory.Items()
+-- Returns: table
+```
+
+### OpenStash
+
+Opens a stash for a player.
+
+```lua
+Bridge.Inventory.OpenStash(src, stashId, stashConfig)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| stashId | string | Unique stash identifier |
+| stashConfig | table | Stash configuration (slots, maxWeight, etc.) |
+
+### RegisterStash
+
+Registers a stash so it can be opened later.
+
+```lua
+Bridge.Inventory.RegisterStash(stashId, stashConfig)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| stashId | string | Unique stash identifier |
+| stashConfig | table | Configuration table |
+
+### ClearStash
+
+Clears all items from a stash.
+
+```lua
+Bridge.Inventory.ClearStash(stashId)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| stashId | string | Stash identifier |
+
+### UpdatePlate
+
+Updates the license plate associated with a vehicle stash/trunk.
+
+```lua
+Bridge.Inventory.UpdatePlate(oldPlate, newPlate)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| oldPlate | string | Old plate text |
+| newPlate | string | New plate text |
+
+### OpenShop
+
+Opens a shop for a player.
+
+```lua
+Bridge.Inventory.OpenShop(src, shopData)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| shopData | table | Shop definition data |
+
+### RegisterShop
+
+Registers a shop definition.
+
+```lua
+Bridge.Inventory.RegisterShop(shopId, shopData)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| shopId | string | Shop identifier |
+| shopData | table | Shop definition |
+
+### AddTrunkItems
+
+Adds items to a vehicle's trunk inventory.
+
+```lua
+Bridge.Inventory.AddTrunkItems(plate, items)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| plate | string | Vehicle plate |
+| items | table | Array of item tables |
+
+### OpenPlayerInventory
+
+Opens a player's inventory (can open another player's inventory).
+
+```lua
+Bridge.Inventory.OpenPlayerInventory(src, targetSrc)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID to open for |
+| targetSrc | number | Target player (optional) |
+
+### GetImagePath
+
+Returns the image path for an item.
+
+```lua
+local path = Bridge.Inventory.GetImagePath(item)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| item | string | Item name |
+
+### StripPNG
+
+Removes the .png extension from a string.
+
+```lua
+local stripped = Bridge.Inventory.StripPNG(str)
+-- Returns: string
+```
+
+### StripWebp
+
+Removes the .webp extension from a string.
+
+```lua
+local stripped = Bridge.Inventory.StripWebp(str)
+-- Returns: string
+```

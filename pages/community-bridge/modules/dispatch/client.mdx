@@ -1,0 +1,31 @@
+# Dispatch — Client
+
+## SendAlert
+
+Sends a dispatch alert from the client.
+
+```lua
+Bridge.Dispatch.SendAlert(data)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| data | table | Alert data table |
+
+### Alert Data Format
+
+```lua
+{
+    title = 'Store Robbery',
+    message = 'A store is being robbed!',
+    job = 'police',
+    coords = vector3(x, y, z),
+    blip = {
+        sprite = 161,
+        colour = 1,
+        scale = 1.0,
+        flash = true,
+        time = 30000
+    }
+}
+```

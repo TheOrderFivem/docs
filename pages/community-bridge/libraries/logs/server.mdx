@@ -1,0 +1,61 @@
+# Logging
+The Logging library provides structured logging with webhook support.
+
+**Side:** Server
+
+## Configuration
+
+Set the log system in `settings/serverConfig.lua`:
+
+```lua
+BridgeServerConfig.LogSystem = 'none'       -- none | built-in | qb | fivemerr | fivemanage | ox_lib
+BridgeServerConfig.WebhookURL = ''          -- Required for built-in
+BridgeServerConfig.FivemerrApiKey = ''       -- Required for fivemerr
+```
+
+## Functions
+
+### Log
+
+Sends a log entry.
+
+```lua
+Bridge.Logs.Log(src, event, message, data)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID (or 0 for system) |
+| event | string | Event/action name |
+| message | string | Log message |
+| data | table | Additional data (optional) |
+
+### CreateEmbed
+
+Creates a Discord embed for webhook logging.
+
+```lua
+local embed = Bridge.Logs.CreateEmbed(title, message, color, fields)
+-- Returns: table (embed object)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| title | string | Embed title |
+| message | string | Embed description |
+| color | number | Embed color (decimal) |
+| fields | table | Array of field objects (optional) |
+
+### SendToDiscord
+
+Sends an embed directly to a Discord webhook.
+
+```lua
+Bridge.Logs.SendToDiscord(webhook, embeds, content)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| webhook | string | Webhook URL |
+| embeds | table | Array of embed objects |
+| content | string | Text content (optional) |

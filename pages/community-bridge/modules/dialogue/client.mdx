@@ -1,0 +1,53 @@
+# Dialogue
+The Dialogue module provides a client-side NPC dialogue system with branching conversations.
+
+## Client Functions
+
+### Open
+
+Opens a dialogue with an NPC or character.
+
+```lua
+Bridge.Dialogue.Open(name, dialogue, characterOptions, dialogueOptions, onSelected)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| name | string | Unique dialogue name |
+| dialogue | table | Array of dialogue entries (see below) |
+| characterOptions | table | Character display options (optional) |
+| dialogueOptions | table | Dialogue UI options (optional) |
+| onSelected | function | Callback when player selects a response |
+
+#### Dialogue Entry Format
+
+```lua
+{
+    {
+        text = 'Hello, how can I help you?',
+        responses = {
+            { text = 'Tell me about the job', next = 2 },
+            { text = 'Goodbye', action = 'close' }
+        }
+    },
+    {
+        text = 'The job pays well and has good hours.',
+        responses = {
+            { text = 'I am interested', action = 'accept' },
+            { text = 'No thanks', action = 'close' }
+        }
+    }
+}
+```
+
+### Close
+
+Closes an active dialogue.
+
+```lua
+Bridge.Dialogue.Close(name)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| name | string | Dialogue name to close |

@@ -1,0 +1,77 @@
+# Points
+The Point library provides a distance-based point system. Points trigger callbacks when the player enters or exits their radius.
+
+**Side:** Client
+
+## Functions
+
+### Create
+
+Creates a new point that monitors player distance.
+
+```lua
+local point = Bridge.Point.Create(options)
+-- Returns: point object
+```
+
+#### Options
+
+```lua
+local point = Bridge.Point.Create({
+    id = 'my_point',
+    coords = vector3(100.0, 200.0, 30.0),
+    distance = 10.0,
+    onEnter = function(self)
+        print('Player entered point')
+    end,
+    onExit = function(self)
+        print('Player left point')
+    end,
+    nearby = function(self)
+        -- Called each frame while nearby
+    end
+})
+```
+
+### Remove
+
+Removes a point by ID.
+
+```lua
+Bridge.Point.Remove(id)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Point ID |
+
+### Get
+
+Returns a point object by ID.
+
+```lua
+local point = Bridge.Point.Get(id)
+-- Returns: point object | nil
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Point ID |
+
+### GetAll
+
+Returns all registered points.
+
+```lua
+local points = Bridge.Point.GetAll()
+-- Returns: table
+```
+
+### GetNearby
+
+Returns all points the player is currently inside.
+
+```lua
+local nearby = Bridge.Point.GetNearby()
+-- Returns: table
+```

@@ -1,0 +1,27 @@
+# Notify — Client
+
+## SendNotification
+
+Sends a notification to the local player.
+
+```lua
+Bridge.Notify.SendNotification(title, message, type, time, props)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| title | string | Notification title |
+| message | string | Notification message |
+| type | string | Type: `'success'`, `'error'`, `'info'`, `'warning'` |
+| time | number | Duration in milliseconds |
+| props | table | Additional properties (optional, resource-specific) |
+
+## Deprecated
+
+### SendNotify
+
+> Use `SendNotification` instead.
+
+```lua
+Bridge.Notify.SendNotify(title, message, type, time, props)
+```

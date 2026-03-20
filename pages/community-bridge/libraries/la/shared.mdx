@@ -1,0 +1,172 @@
+# LA (Linear Algebra / Easing)
+The LA library provides easing functions and vector interpolation utilities based on [easings.net](https://easings.net). Useful for smooth animations, camera movements, and transitions.
+
+**Side:** Shared (Client & Server)
+
+---
+
+## Interpolation
+
+### Lerp
+
+Linear interpolation between two numbers.
+
+```lua
+local result = Bridge.LA.Lerp(a, b, t)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| a | number | Start value |
+| b | number | End value |
+| t | number | Interpolation factor (0–1) |
+
+### LerpVector
+
+Linear interpolation between two `vector3` values.
+
+```lua
+local result = Bridge.LA.LerpVector(a, b, t)
+-- Returns: vector3
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| a | vector3 | Start position |
+| b | vector3 | End position |
+| t | number | Interpolation factor (0–1) |
+
+---
+
+## Individual Easing Functions
+
+Each easing curve is available as a standalone function that takes `t` (0–1) and returns the eased value.
+
+| Function | Description |
+|----------|-------------|
+| `LA.EaseInSine(t)` | Sine ease-in |
+| `LA.EaseOutSine(t)` | Sine ease-out |
+| `LA.EaseInOutSine(t)` | Sine ease-in-out |
+| `LA.EaseInCubic(t)` | Cubic ease-in |
+| `LA.EaseOutCubic(t)` | Cubic ease-out |
+| `LA.EaseInOutCubic(t)` | Cubic ease-in-out |
+| `LA.EaseInQuint(t)` | Quintic ease-in |
+| `LA.EaseOutQuint(t)` | Quintic ease-out |
+| `LA.EaseInOutQuint(t)` | Quintic ease-in-out |
+| `LA.EaseInQuad(t)` | Quadratic ease-in |
+| `LA.EaseOutQuad(t)` | Quadratic ease-out |
+| `LA.EaseInOutQuad(t)` | Quadratic ease-in-out |
+| `LA.EaseInQuart(t)` | Quartic ease-in |
+| `LA.EaseOutQuart(t)` | Quartic ease-out |
+| `LA.EaseInOutQuart(t)` | Quartic ease-in-out |
+| `LA.EaseInExpo(t)` | Exponential ease-in |
+| `LA.EaseOutExpo(t)` | Exponential ease-out |
+| `LA.EaseInOutExpo(t)` | Exponential ease-in-out |
+| `LA.EaseInCirc(t)` | Circular ease-in |
+| `LA.EaseOutCirc(t)` | Circular ease-out |
+| `LA.EaseInOutCirc(t)` | Circular ease-in-out |
+| `LA.EaseInElastic(t)` | Elastic ease-in |
+| `LA.EaseOutElastic(t)` | Elastic ease-out |
+| `LA.EaseInOutElastic(t)` | Elastic ease-in-out |
+| `LA.EaseInBack(t)` | Back ease-in |
+| `LA.EaseOutBack(t)` | Back ease-out |
+| `LA.EaseInOutBack(t)` | Back ease-in-out |
+| `LA.EaseInBounce(t)` | Bounce ease-in |
+| `LA.EaseOutBounce(t)` | Bounce ease-out |
+| `LA.EaseInOutBounce(t)` | Bounce ease-in-out |
+
+---
+
+## Dynamic Easing by Name
+
+### EaseIn
+
+Apply an ease-in curve by name.
+
+```lua
+local result = Bridge.LA.EaseIn(t, easingType)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| t | number | Progress (0–1) |
+| easingType | string | Curve name: `""linear""`, `""sine""`, `""cubic""`, `""quint""`, `""circ""`, `""elastic""`, `""quad""`, `""quart""`, `""expo""`, `""back""`, `""bounce""` |
+
+### EaseOut
+
+Apply an ease-out curve by name.
+
+```lua
+local result = Bridge.LA.EaseOut(t, easingType)
+-- Returns: number
+```
+
+Parameters are the same as `EaseIn`.
+
+### EaseInOut
+
+Apply an ease-in-out curve by name.
+
+```lua
+local result = Bridge.LA.EaseInOut(t, easingType)
+-- Returns: number
+```
+
+Parameters are the same as `EaseIn`.
+
+---
+
+## Vector Easing
+
+Apply easing curves to `vector3` interpolation.
+
+### EaseInVector
+
+```lua
+local result = Bridge.LA.EaseInVector(a, b, t, easingType)
+-- Returns: vector3
+```
+
+### EaseOutVector
+
+```lua
+local result = Bridge.LA.EaseOutVector(a, b, t, easingType)
+-- Returns: vector3
+```
+
+### EaseInOutVector
+
+```lua
+local result = Bridge.LA.EaseInOutVector(a, b, t, easingType)
+-- Returns: vector3
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| a | vector3 | Start position |
+| b | vector3 | End position |
+| t | number | Progress (0–1) |
+| easingType | string | Curve name (see `EaseIn` for valid values) |
+
+## Example
+
+```lua
+-- Smoothly move from point A to point B over 2 seconds
+local start = vector3(100.0, 200.0, 30.0)
+local target = vector3(150.0, 250.0, 35.0)
+local duration = 2000 -- ms
+local startTime = GetGameTimer()
+
+Citizen.CreateThread(function()
+    while true do
+        local elapsed = GetGameTimer() - startTime
+        local t = math.min(elapsed / duration, 1.0)
+        local pos = Bridge.LA.EaseInOutVector(start, target, t, 'cubic')
+        SetEntityCoords(PlayerPedId(), pos.x, pos.y, pos.z)
+        if t >= 1.0 then break end
+        Wait(0)
+    end
+end)
+```

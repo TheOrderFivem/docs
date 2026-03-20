@@ -1,0 +1,28 @@
+# Notify — Server
+
+## SendNotification
+
+Sends a notification to a specific player from the server.
+
+```lua
+Bridge.Notify.SendNotification(src, title, message, type, time, props)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| title | string | Notification title |
+| message | string | Notification message |
+| type | string | Type: `'success'`, `'error'`, `'info'`, `'warning'` |
+| time | number | Duration in milliseconds |
+| props | table | Additional properties (optional) |
+
+## Deprecated
+
+### SendNotify
+
+> Use `SendNotification` instead.
+
+```lua
+Bridge.Notify.SendNotify(src, title, message, type, time, props)
+```

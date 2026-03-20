@@ -1,0 +1,109 @@
+# Math
+The Math library provides common math utilities.
+
+**Side:** Shared
+
+## Functions
+
+### Round
+
+Rounds a number to a given number of decimal places.
+
+```lua
+local rounded = Bridge.Math.Round(value, decimals)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| value | number | Number to round |
+| decimals | number | Decimal places (default 0) |
+
+### Clamp
+
+Clamps a value between a minimum and maximum.
+
+```lua
+local clamped = Bridge.Math.Clamp(value, min, max)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| value | number | Value to clamp |
+| min | number | Minimum bound |
+| max | number | Maximum bound |
+
+### Lerp
+
+Linearly interpolates between two values.
+
+```lua
+local result = Bridge.Math.Lerp(a, b, t)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| a | number | Start value |
+| b | number | End value |
+| t | number | Interpolation factor (0.0 - 1.0) |
+
+### InverseLerp
+
+Returns the interpolation factor for a value between two bounds.
+
+```lua
+local t = Bridge.Math.InverseLerp(a, b, value)
+-- Returns: number (0.0 - 1.0)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| a | number | Start value |
+| b | number | End value |
+| value | number | Value to find factor for |
+
+### Remap
+
+Remaps a value from one range to another.
+
+```lua
+local result = Bridge.Math.Remap(value, fromMin, fromMax, toMin, toMax)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| value | number | Input value |
+| fromMin | number | Source range minimum |
+| fromMax | number | Source range maximum |
+| toMin | number | Target range minimum |
+| toMax | number | Target range maximum |
+
+### GroupDigits
+
+Formats a number with digit grouping (e.g. `1,000,000`).
+
+```lua
+local str = Bridge.Math.GroupDigits(number)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| number | number | Number to format |
+
+### InBoundary
+
+Checks if a point is within a boundary defined by min/max vectors or polygon points.
+
+```lua
+local inside = Bridge.Math.InBoundary(point, boundary)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| point | vector3 | Position to check |
+| boundary | table | Boundary definition (`{min, max}` or `{points, minZ, maxZ}`) |

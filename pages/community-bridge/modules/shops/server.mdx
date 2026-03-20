@@ -1,0 +1,27 @@
+# Shops — Server
+
+## CreateShop
+
+Creates/registers a shop definition.
+
+```lua
+Bridge.Shops.CreateShop(shopId, shopData)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| shopId | string | Unique shop identifier |
+| shopData | table | Shop definition with items, name, etc. |
+
+## OpenShop
+
+Opens a shop for a player.
+
+```lua
+Bridge.Shops.OpenShop(src, shopData)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| shopData | table | Shop definition |

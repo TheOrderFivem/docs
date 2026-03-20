@@ -1,0 +1,66 @@
+# Clothing — Server
+
+## IsMale
+
+Returns whether a player's character is male.
+
+```lua
+local male = Bridge.Clothing.IsMale(src)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+## GetAppearance
+
+Returns a player's appearance data.
+
+```lua
+local appearance = Bridge.Clothing.GetAppearance(src)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+## SetAppearance
+
+Applies appearance data to a player.
+
+```lua
+Bridge.Clothing.SetAppearance(src, appearance)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| appearance | table | Appearance data table |
+
+## SetAppearanceExt
+
+Sets individual appearance properties on a player. Used for partial updates.
+
+```lua
+Bridge.Clothing.SetAppearanceExt(src, key, value)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| key | string | Appearance property key |
+| value | any | Value to set |
+
+## RestoreAppearance
+
+Restores a player's saved appearance from the database.
+
+```lua
+Bridge.Clothing.RestoreAppearance(src)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |

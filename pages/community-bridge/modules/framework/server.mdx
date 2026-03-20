@@ -1,0 +1,459 @@
+# Framework — Server
+
+## Functions
+
+### GetResourceName
+
+Returns the framework resource name.
+
+```lua
+local name = Bridge.Framework.GetResourceName()
+-- Returns: string
+```
+
+### GetIsFrameworkAdmin
+
+Checks if a player has admin permissions.
+
+```lua
+local isAdmin = Bridge.Framework.GetIsFrameworkAdmin(src)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetPlayerIdentifier
+
+Returns a player's identifier.
+
+```lua
+local id = Bridge.Framework.GetPlayerIdentifier(src)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetPlayer
+
+Returns the raw framework player object.
+
+```lua
+local player = Bridge.Framework.GetPlayer(src)
+-- Returns: table (framework-specific player object)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetPlayerByIdentifier
+
+Returns a player object by their identifier string.
+
+```lua
+local player = Bridge.Framework.GetPlayerByIdentifier(identifier)
+-- Returns: table | nil
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| identifier | string | Player identifier |
+
+### GetPlayerSource
+
+Returns a player's server ID from a framework player object.
+
+```lua
+local src = Bridge.Framework.GetPlayerSource(player)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| player | table | Framework player object |
+
+### GetFrameworkJobs
+
+Returns all registered jobs in the framework.
+
+```lua
+local jobs = Bridge.Framework.GetFrameworkJobs()
+-- Returns: table
+```
+
+### GetPlayerName
+
+Returns a player's character name.
+
+```lua
+local name = Bridge.Framework.GetPlayerName(src)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetPlayerDob
+
+Returns a player's date of birth.
+
+```lua
+local dob = Bridge.Framework.GetPlayerDob(src)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetPlayers
+
+Returns all currently connected players.
+
+```lua
+local players = Bridge.Framework.GetPlayers()
+-- Returns: table
+```
+
+### GetPlayerJobData
+
+Returns a player's job data.
+
+```lua
+local job = Bridge.Framework.GetPlayerJobData(src)
+-- Returns: table { name, label, grade, gradeLabel, isBoss, duty, type }
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetPlayerDuty
+
+Returns whether a player is on duty.
+
+```lua
+local onDuty = Bridge.Framework.GetPlayerDuty(src)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### SetPlayerDuty
+
+Sets a player's duty status.
+
+```lua
+Bridge.Framework.SetPlayerDuty(src, duty)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| duty | boolean | Duty status |
+
+### SetPlayerJob
+
+Sets a player's job.
+
+```lua
+Bridge.Framework.SetPlayerJob(src, job, grade)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| job | string | Job name |
+| grade | number | Job grade |
+
+### GetPlayerPhone
+
+Returns a player's phone number.
+
+```lua
+local phone = Bridge.Framework.GetPlayerPhone(src)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetPlayerGang
+
+Returns a player's gang data.
+
+```lua
+local gang = Bridge.Framework.GetPlayerGang(src)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetPlayersByJob
+
+Returns all online players with a given job.
+
+```lua
+local players = Bridge.Framework.GetPlayersByJob(job)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| job | string | Job name |
+
+### GetPlayerMetadata
+
+Returns player metadata for a key.
+
+```lua
+local meta = Bridge.Framework.GetPlayerMetadata(src, key)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| key | string | Metadata key |
+
+### SetPlayerMetadata
+
+Sets player metadata for a key.
+
+```lua
+Bridge.Framework.SetPlayerMetadata(src, key, value)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| key | string | Metadata key |
+| value | any | Value to set |
+
+### AddStress
+
+Adds stress to a player.
+
+```lua
+Bridge.Framework.AddStress(src, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| amount | number | Amount to add |
+
+### RemoveStress
+
+Removes stress from a player.
+
+```lua
+Bridge.Framework.RemoveStress(src, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| amount | number | Amount to remove |
+
+### AddHunger
+
+Adds hunger to a player.
+
+```lua
+Bridge.Framework.AddHunger(src, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| amount | number | Amount to add |
+
+### AddThirst
+
+Adds thirst to a player.
+
+```lua
+Bridge.Framework.AddThirst(src, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| amount | number | Amount to add |
+
+### GetHunger
+
+Returns a player's hunger level.
+
+```lua
+local hunger = Bridge.Framework.GetHunger(src)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetThirst
+
+Returns a player's thirst level.
+
+```lua
+local thirst = Bridge.Framework.GetThirst(src)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### GetIsPlayerDead
+
+Returns whether a player is dead.
+
+```lua
+local dead = Bridge.Framework.GetIsPlayerDead(src)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### RevivePlayer
+
+Revives a player.
+
+```lua
+Bridge.Framework.RevivePlayer(src)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+### AddAccountBalance
+
+Adds money to a player's account.
+
+```lua
+Bridge.Framework.AddAccountBalance(src, accountType, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| accountType | string | Account type (e.g. 'cash', 'bank') |
+| amount | number | Amount to add |
+
+### RemoveAccountBalance
+
+Removes money from a player's account.
+
+```lua
+Bridge.Framework.RemoveAccountBalance(src, accountType, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| accountType | string | Account type |
+| amount | number | Amount to remove |
+
+### GetAccountBalance
+
+Returns a player's balance for a given account type.
+
+```lua
+local balance = Bridge.Framework.GetAccountBalance(src, accountType)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| accountType | string | Account type |
+
+### GetJobCount
+
+Returns the number of online players with a specific job.
+
+```lua
+local count = Bridge.Framework.GetJobCount(job)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| job | string | Job name |
+
+### GetJobCountTotal
+
+Returns the total count of online players across multiple jobs.
+
+```lua
+local count = Bridge.Framework.GetJobCountTotal(jobs)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| jobs | table | Array of job name strings |
+
+### GetPlayerSourcesByJob
+
+Returns the server IDs of all players with a specific job.
+
+```lua
+local sources = Bridge.Framework.GetPlayerSourcesByJob(job)
+-- Returns: table (array of server IDs)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| job | string | Job name |
+
+---
+
+## Events
+
+### community_bridge:Server:OnPlayerLoaded
+
+Fired when a player finishes loading.
+
+```lua
+RegisterNetEvent('community_bridge:Server:OnPlayerLoaded', function(src)
+    -- src: player server ID
+end)
+```
+
+### community_bridge:Server:OnPlayerUnload
+
+Fired when a player disconnects or unloads.
+
+```lua
+RegisterNetEvent('community_bridge:Server:OnPlayerUnload', function(src)
+    -- src: player server ID
+end)
+```
+
+### community_bridge:Server:OnPlayerJobChange
+
+Fired when a player's job changes.
+
+```lua
+RegisterNetEvent('community_bridge:Server:OnPlayerJobChange', function(src, jobData)
+    -- src: player server ID
+    -- jobData: table { name, label, grade, gradeLabel, isBoss, duty, type }
+end)
+```

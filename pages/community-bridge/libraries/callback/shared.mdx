@@ -1,0 +1,61 @@
+# Callback
+The Callback library provides a client-server callback system for requesting data across network boundaries.
+
+**Side:** Shared (Client & Server)
+
+## Functions
+
+### Trigger
+
+Triggers a registered callback and returns the result. Can be called from either client or server.
+
+```lua
+local result = Bridge.Callback.Trigger(name, src, ...)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| name | string | Callback name |
+| src | number | Source ID (server ID when calling from client, `-1` or player src from server) |
+| ... | any | Additional arguments passed to the callback handler |
+
+### Register
+
+Registers a callback handler.
+
+```lua
+Bridge.Callback.Register(name, handler)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| name | string | Callback name |
+| handler | function | Handler function that returns a value |
+
+### TriggerAsync
+
+Triggers a callback asynchronously with a callback function instead of blocking.
+
+```lua
+Bridge.Callback.TriggerAsync(name, src, cb, ...)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| name | string | Callback name |
+| src | number | Source ID |
+| cb | function | Callback to receive the result |
+| ... | any | Additional arguments |
+
+## Example
+
+```lua
+-- Server: Register a callback
+Bridge.Callback.Register('getPlayerMoney', function(src)
+    return Bridge.Framework.GetAccountBalance(src, 'cash')
+end)
+
+-- Client: Trigger the callback
+local money = Bridge.Callback.Trigger('getPlayerMoney', nil)
+print('Cash:', money)
+```

@@ -1,0 +1,79 @@
+# Inventory — Client
+
+## Functions
+
+### GetItemInfo
+
+Returns item definition data.
+
+```lua
+local info = Bridge.Inventory.GetItemInfo(item)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| item | string | Item name |
+
+### HasItem
+
+Checks if the player has an item.
+
+```lua
+local has = Bridge.Inventory.HasItem(item, amount)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| item | string | Item name |
+| amount | number | Minimum amount (optional, default 1) |
+
+### GetItemCount
+
+Returns the count of an item in the player's inventory.
+
+```lua
+local count = Bridge.Inventory.GetItemCount(item)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| item | string | Item name |
+
+### GetPlayerInventory
+
+Returns the player's inventory.
+
+```lua
+local inventory = Bridge.Inventory.GetPlayerInventory()
+-- Returns: table
+```
+
+### Items
+
+Returns all registered items.
+
+```lua
+local items = Bridge.Inventory.Items()
+-- Returns: table
+```
+
+### GetImagePath
+
+Returns the image path for an item.
+
+```lua
+local path = Bridge.Inventory.GetImagePath(item)
+-- Returns: string
+```
+
+### StripPNG / StripWebp
+
+Utility functions to remove file extensions from item image strings.
+
+```lua
+local clean = Bridge.Inventory.StripPNG(str)
+local clean = Bridge.Inventory.StripWebp(str)
+```

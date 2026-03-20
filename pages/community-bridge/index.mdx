@@ -1,0 +1,54 @@
+# Community Bridge
+
+**Universal Translation Layer for FiveM** — auto-detects your resources and provides a single consistent API.
+
+<div className="flex flex-wrap gap-2 my-4">
+  <a href="https://github.com/TheOrderFivem/community_bridge" target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm">
+    GitHub
+  </a>
+  <a href="https://github.com/TheOrderFivem/community_bridge/releases" target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm">
+    Releases
+  </a>
+</div>
+
+---
+
+## How It Works
+
+Community Bridge automatically detects your installed framework, inventory, notification system, and other resources at startup. It then exposes a universal `Bridge` object that wraps all of them behind one consistent API.
+
+```lua
+local Bridge = exports['community_bridge']:Bridge()
+
+-- These work regardless of which inventory/notify/framework you use
+Bridge.Inventory.AddItem(source, 'bread', 5)
+Bridge.Notify.SendNotification(source, 'Shop', 'Purchase complete!', 'success', 5000)
+Bridge.Framework.GetPlayerIdentifier(source)
+```
+
+---
+
+## Supported Resources
+
+### Frameworks
+ESX (es_extended), QBCore (qb-core), QBX Core (qbx_core), Standalone
+
+### Inventories
+ox_inventory, qb-inventory, qs-inventory, codem-inventory, core_inventory, tgiann-inventory, ps-inventory, origen_inventory, jpr-inventory
+
+### Notifications
+ox_lib, okokNotify, mythic_notify, brutal_notify, pNotify, t-notify, r_notify, wasabi_notify, FL-Notify, lation_ui, ZSX_UIV2
+
+### Targeting
+ox_target, qb-target, sleepless_interact
+
+### Other Systems
+Banking, Clothing, Boss Menu, Dispatch, Doorlock, Fuel, Help Text, Housing, Input, Menu, Phone, Progress Bar, Shops, Skills, Vehicle Keys, Weather, Zones
+
+---
+
+## Next Steps
+
+- [Getting Started](/community-bridge/getting-started) — Installation and configuration
+- [Modules](/community-bridge/modules) — Bridged resource APIs (Framework, Inventory, Notify, etc.)
+- [Libraries](/community-bridge/libraries) — Utility libraries (Entities, Callback, Math, Markers, etc.)

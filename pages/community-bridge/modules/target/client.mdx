@@ -1,0 +1,149 @@
+# Target
+The Target module provides entity and zone targeting. Bridges ox_target, qb-target, and sleepless_interact.
+
+## Client Functions
+
+### AddLocalEntity
+
+Adds targeting options to a specific entity.
+
+```lua
+Bridge.Target.AddLocalEntity(entity, options, distance)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| entity | number | Entity handle |
+| options | table | Array of target option tables |
+| distance | number | Interaction distance |
+
+#### Option Format
+
+```lua
+{
+    label = 'Talk to NPC',
+    icon = 'fa-solid fa-comments',
+    onSelect = function(entity)
+        print('Selected!')
+    end,
+    canInteract = function(entity)
+        return true -- optional condition
+    end
+}
+```
+
+### AddBoxZone
+
+Creates a box zone with targeting options.
+
+```lua
+Bridge.Target.AddBoxZone(name, coords, size, heading, options, useZ)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| name | string | Unique zone name |
+| coords | vector3 | Zone center position |
+| size | vector3 | Zone dimensions |
+| heading | number | Zone heading/rotation |
+| options | table | Array of target options |
+| useZ | boolean | Use Z-axis for detection (optional) |
+
+### AddGlobalPlayer
+
+Adds targeting options to all players.
+
+```lua
+Bridge.Target.AddGlobalPlayer(options)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| options | table | Array of target options |
+
+### AddGlobalVehicle
+
+Adds targeting options to all vehicles.
+
+```lua
+Bridge.Target.AddGlobalVehicle(options)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| options | table | Array of target options |
+
+### AddModel
+
+Adds targeting options to all entities of a specific model.
+
+```lua
+Bridge.Target.AddModel(model, options, distance)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| model | string \| number | Model name or hash |
+| options | table | Array of target options |
+| distance | number | Interaction distance |
+
+### RemoveLocalEntity
+
+Removes targeting from a specific entity.
+
+```lua
+Bridge.Target.RemoveLocalEntity(entity)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| entity | number | Entity handle |
+
+### RemoveZone
+
+Removes a targeting zone by name.
+
+```lua
+Bridge.Target.RemoveZone(name)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| name | string | Zone name |
+
+### RemoveGlobalPlayer
+
+Removes global player targeting options.
+
+```lua
+Bridge.Target.RemoveGlobalPlayer(labels)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| labels | table | Array of option labels to remove |
+
+### RemoveGlobalVehicle
+
+Removes global vehicle targeting options.
+
+```lua
+Bridge.Target.RemoveGlobalVehicle(labels)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| labels | table | Array of option labels to remove |
+
+### RemoveModel
+
+Removes targeting from a model.
+
+```lua
+Bridge.Target.RemoveModel(model, labels)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| model | string \| number | Model name or hash |
+| labels | table | Array of option labels to remove |

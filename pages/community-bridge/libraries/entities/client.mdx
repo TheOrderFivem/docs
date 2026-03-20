@@ -1,0 +1,83 @@
+# Entities — Client
+
+## Create
+
+Creates and registers a managed entity that auto-spawns when the player is nearby and despawns when far away.
+
+```lua
+local data = Bridge.Entity.Create(options)
+-- Returns: table (entity registration data)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| options | table | Entity configuration (see below) |
+
+### Options
+
+```lua
+Bridge.Entity.Create({
+    id = 'my_ped',
+    entityType = 'ped',          -- 'ped', 'vehicle', or 'object'
+    model = 's_m_y_cop_01',
+    coords = vector3(100.0, 200.0, 30.0),
+    rotation = vector3(0.0, 0.0, 90.0),
+    distance = 50.0,             -- Spawn/despawn distance
+    scenario = 'WORLD_HUMAN_COP_IDLES',  -- Ped scenario (optional)
+    freeze = true,               -- Freeze entity (optional)
+    invincible = true,           -- Make invincible (optional)
+    OnSpawn = function(data)
+        -- Called when entity spawns
+        -- data.spawned = entity handle
+    end,
+    OnRemove = function(data)
+        -- Called when entity despawns
+    end
+})
+```
+
+## Register
+
+Registers an entity configuration (alias for internal registration).
+
+```lua
+Bridge.Entity.Register(options)
+```
+
+## Unregister
+
+Removes a managed entity by ID.
+
+```lua
+Bridge.Entity.Unregister(id)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Entity registration ID |
+
+## GetEntity
+
+Returns the spawned entity handle for a registered entity.
+
+```lua
+local entity = Bridge.Entity.GetEntity(id)
+-- Returns: number | nil
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Entity registration ID |
+
+## UpdateCoords
+
+Updates the coordinates of a registered entity.
+
+```lua
+Bridge.Entity.UpdateCoords(id, coords)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Entity registration ID |
+| coords | vector3 | New coordinates |

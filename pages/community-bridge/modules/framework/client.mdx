@@ -1,0 +1,249 @@
+# Framework — Client
+
+## Functions
+
+### GetResourceName
+
+Returns the framework resource name.
+
+```lua
+local name = Bridge.Framework.GetResourceName()
+-- Returns: string (e.g. 'es_extended', 'qb-core', 'qbx_core')
+```
+
+### GetIsPlayerLoaded
+
+Returns whether the player has fully loaded into the framework.
+
+```lua
+local loaded = Bridge.Framework.GetIsPlayerLoaded()
+-- Returns: boolean
+```
+
+### GetPlayerIdentifier
+
+Returns the player's identifier.
+
+```lua
+local id = Bridge.Framework.GetPlayerIdentifier()
+-- Returns: string
+```
+
+### GetPlayerName
+
+Returns the player's character name.
+
+```lua
+local name = Bridge.Framework.GetPlayerName()
+-- Returns: string
+```
+
+### GetPlayerJobData
+
+Returns the player's job data table.
+
+```lua
+local job = Bridge.Framework.GetPlayerJobData()
+-- Returns: table { name: string, label: string, grade: number, gradeLabel: string, isBoss: boolean, duty: boolean, type: string }
+```
+
+### GetPlayerDob
+
+Returns the player's date of birth.
+
+```lua
+local dob = Bridge.Framework.GetPlayerDob()
+-- Returns: string
+```
+
+### GetPlayerMetaData
+
+Returns the player's metadata for a given key.
+
+```lua
+local meta = Bridge.Framework.GetPlayerMetaData(key)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| key | string | Metadata key to retrieve |
+
+### GetHunger
+
+Returns the player's hunger level.
+
+```lua
+local hunger = Bridge.Framework.GetHunger()
+-- Returns: number
+```
+
+### GetThirst
+
+Returns the player's thirst level.
+
+```lua
+local thirst = Bridge.Framework.GetThirst()
+-- Returns: number
+```
+
+### HasItem
+
+> **Warning:** This is an internal fallback. Use [`Bridge.Inventory.HasItem`](/community-bridge/modules/inventory/client) for item checks.
+
+Checks if the player has a specific item.
+
+```lua
+local has = Bridge.Framework.HasItem(item, amount)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| item | string | Item name |
+| amount | number | Minimum amount (optional, default 1) |
+
+### GetItemCount
+
+> **Warning:** This is an internal fallback. Use [`Bridge.Inventory.GetItemCount`](/community-bridge/modules/inventory/client) for item counts.
+
+Returns the count of a specific item in the player's inventory.
+
+```lua
+local count = Bridge.Framework.GetItemCount(item)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| item | string | Item name |
+
+### GetPlayerInventory
+
+> **Warning:** This is an internal fallback. Use [`Bridge.Inventory.GetPlayerInventory`](/community-bridge/modules/inventory/client) to access inventory data.
+
+Returns the player's full inventory table.
+
+```lua
+local inventory = Bridge.Framework.GetPlayerInventory()
+-- Returns: table
+```
+
+### GetAccountBalance
+
+Returns the player's balance for a given account type.
+
+```lua
+local balance = Bridge.Framework.GetAccountBalance(accountType)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| accountType | string | Account type (e.g. 'cash', 'bank') |
+
+### GetIsPlayerDead
+
+Returns whether the player is dead.
+
+```lua
+local dead = Bridge.Framework.GetIsPlayerDead()
+-- Returns: boolean
+```
+
+### GetVehicleProperties
+
+Returns all properties of a vehicle entity.
+
+```lua
+local props = Bridge.Framework.GetVehicleProperties(vehicle)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| vehicle | number | Vehicle entity handle |
+
+### SetVehicleProperties
+
+Applies a properties table to a vehicle entity.
+
+```lua
+Bridge.Framework.SetVehicleProperties(vehicle, props)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| vehicle | number | Vehicle entity handle |
+| props | table | Properties table (from GetVehicleProperties) |
+
+### GetJobCount
+
+Returns the count of online players with a specific job.
+
+```lua
+local count = Bridge.Framework.GetJobCount(job)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| job | string | Job name |
+
+### GetJobCountTotal
+
+Returns the count of online players across multiple jobs.
+
+```lua
+local count = Bridge.Framework.GetJobCountTotal(jobs)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| jobs | table | Array of job name strings |
+
+---
+
+## Events
+
+### community_bridge:Client:OnPlayerLoaded
+
+Fired when the player finishes loading into the framework.
+
+```lua
+RegisterNetEvent('community_bridge:Client:OnPlayerLoaded', function()
+    -- Player is now loaded
+end)
+```
+
+### community_bridge:Client:OnPlayerUnload
+
+Fired when the player unloads (e.g. character switch, disconnect).
+
+```lua
+RegisterNetEvent('community_bridge:Client:OnPlayerUnload', function()
+    -- Cleanup here
+end)
+```
+
+### community_bridge:Client:OnPlayerJobUpdate
+
+Fired when the player's job changes.
+
+```lua
+RegisterNetEvent('community_bridge:Client:OnPlayerJobUpdate', function(jobData)
+    -- jobData: table { name, label, grade, gradeLabel, isBoss, duty, type }
+end)
+```
+
+---
+
+## Deprecated
+
+### GetPlayerJob
+
+> Use `GetPlayerJobData` instead. Returns only the job name string.
+
+```lua
+local jobName = Bridge.Framework.GetPlayerJob()
+```

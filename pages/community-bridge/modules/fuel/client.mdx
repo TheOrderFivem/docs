@@ -1,0 +1,30 @@
+# Fuel
+The Fuel module provides client-side vehicle fuel management. Bridges LegacyFuel, ox_fuel, ps-fuel, and others.
+
+## Client Functions
+
+### GetFuel
+
+Returns the fuel level of a vehicle.
+
+```lua
+local fuel = Bridge.Fuel.GetFuel(vehicle)
+-- Returns: number (0.0 - 100.0)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| vehicle | number | Vehicle entity handle |
+
+### SetFuel
+
+Sets the fuel level of a vehicle.
+
+```lua
+Bridge.Fuel.SetFuel(vehicle, level)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| vehicle | number | Vehicle entity handle |
+| level | number | Fuel level (0.0 - 100.0) |

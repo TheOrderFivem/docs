@@ -1,0 +1,75 @@
+# Zones
+The Zones module provides zone creation and management. Currently bridges ox_lib zones.
+
+## Client Functions
+
+### Create
+
+Creates a new zone.
+
+```lua
+local zone = Bridge.Zones.Create(type, data)
+-- Returns: zone object
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| type | string | Zone type: `'box'`, `'sphere'`, or `'poly'` |
+| data | table | Zone configuration (see below) |
+
+#### Zone Data Format
+
+```lua
+local zone = Bridge.Zones.Create('box', {
+    coords = vector3(100.0, 200.0, 30.0),
+    size = vector3(10.0, 10.0, 5.0),
+    rotation = 45.0,
+    debug = false,
+    onEnter = function(self)
+        print('Entered zone')
+    end,
+    onExit = function(self)
+        print('Exited zone')
+    end,
+    inside = function(self)
+        -- Called every frame while inside
+    end
+})
+```
+
+### Destroy
+
+Destroys a zone by ID.
+
+```lua
+Bridge.Zones.Destroy(id)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | any | Zone identifier |
+
+### DestroyByResource
+
+Destroys all zones created by a specific resource.
+
+```lua
+Bridge.Zones.DestroyByResource(resource)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| resource | string | Resource name |
+
+### Get
+
+Returns a zone object by ID.
+
+```lua
+local zone = Bridge.Zones.Get(id)
+-- Returns: zone object | nil
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | any | Zone identifier |

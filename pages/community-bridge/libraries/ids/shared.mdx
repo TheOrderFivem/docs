@@ -1,0 +1,34 @@
+# IDs
+The IDs library provides unique identifier generation.
+
+**Side:** Shared
+
+## Functions
+
+### CreateUniqueId
+
+Generates a unique string ID that doesn't exist in the given table.
+
+```lua
+local id = Bridge.Ids.CreateUniqueId(existingTable, prefix)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| existingTable | table | Table of existing IDs to avoid collisions |
+| prefix | string | Optional prefix for the ID |
+
+### RandomNumber
+
+Generates a random number string of a given length that doesn't exist in the table.
+
+```lua
+local num = Bridge.Ids.RandomNumber(existingTable, length)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| existingTable | table | Table of existing numbers to avoid collisions |
+| length | number | Number of digits |

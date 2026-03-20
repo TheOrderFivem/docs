@@ -1,0 +1,46 @@
+# Progress Bar
+The ProgressBar module provides client-side progress bar UI. Bridges ox_lib, wasabi_uikit, lation_ui, and others.
+
+## Client Functions
+
+### Open
+
+Displays a progress bar and calls a callback on completion.
+
+```lua
+Bridge.ProgressBar.Open(options, cb, isQBInput)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| options | table | Progress bar options (see below) |
+| cb | function | Callback function, receives cancelled boolean |
+| isQBInput | boolean | Whether options are in QB format (optional) |
+
+#### Options Format
+
+```lua
+Bridge.ProgressBar.Open({
+    duration = 5000,
+    label = 'Searching...',
+    canCancel = true,
+    disable = {
+        move = true,
+        combat = true
+    },
+    anim = {
+        dict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@',
+        clip = 'machinic_loop_mechandler'
+    },
+    prop = {
+        model = 'prop_tool_spanner',
+        bone = 57005,
+        pos = vector3(0.12, 0.04, -0.01),
+        rot = vector3(10.0, 0.0, 0.0)
+    }
+}, function(cancelled)
+    if not cancelled then
+        print('completed')
+    end
+end)
+```

@@ -1,0 +1,40 @@
+# Locales
+The Locales module provides localized string translations. Language files are JSON files in the `locales/` folder.
+
+## Configuration
+
+Set the language in `settings/sharedConfig.lua`:
+
+```lua
+BridgeSharedConfig.Lang = 'auto'  -- or 'en', 'fr', 'de', etc.
+```
+
+When set to `auto`, it attempts to detect the language from the system or defaults to English.
+
+## Shared Functions
+
+### Language.Locale
+
+Returns a localized string with optional format arguments.
+
+```lua
+local text = Bridge.Language.Locale(key, ...)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| key | string | Locale key (e.g. 'notify.success') |
+| ... | any | Format arguments (optional) |
+
+#### Example
+
+```lua
+-- en.json: { "welcome": "Welcome, %s!" }
+local msg = Bridge.Language.Locale('welcome', 'John')
+-- Returns: 'Welcome, John!'
+```
+
+## Supported Languages
+
+af, ar, bg, cs, da, de, el, en, en-pirate, es, fi, fr, hi, hr, hu, it, ja, ko, lt, nl, no, pl, pt, ro, ru, sv, th, tr, zh, zh-cn, zh-hk, zh-tw

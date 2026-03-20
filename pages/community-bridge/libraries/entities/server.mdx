@@ -1,0 +1,32 @@
+# Entities — Server
+
+## Create
+
+Creates an entity on the server side (networked).
+
+```lua
+local entity = Bridge.Entity.Create(options)
+-- Returns: number (entity handle)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| options | table | Entity options with model, coords, entityType |
+
+## Delete
+
+Deletes a server-created entity.
+
+```lua
+Bridge.Entity.Delete(entity)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| entity | number | Entity handle |
+
+---
+
+## Deprecated
+
+`ServerEntity` and `ClientEntity` are deprecated aliases — use `Bridge.Entity` instead.

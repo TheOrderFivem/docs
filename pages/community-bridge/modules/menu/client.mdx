@@ -1,0 +1,44 @@
+# Menu
+The Menu module provides client-side context/list menus. Bridges ox_lib, wasabi_uikit, lation_ui, and qb-menu.
+
+## Client Functions
+
+### Open
+
+Opens a context or list menu.
+
+```lua
+Bridge.Menu.Open(data, useQb)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| data | table | Menu definition (see below) |
+| useQb | boolean | Use QB-style format (optional, for compatibility) |
+
+#### Menu Data Format
+
+```lua
+Bridge.Menu.Open({
+    id = 'my_menu',
+    title = 'My Menu',
+    options = {
+        {
+            title = 'Option 1',
+            description = 'First option',
+            icon = 'fa-solid fa-1',
+            onSelect = function()
+                print('Selected option 1')
+            end
+        },
+        {
+            title = 'Option 2',
+            description = 'Second option',
+            icon = 'fa-solid fa-2',
+            onSelect = function()
+                print('Selected option 2')
+            end
+        }
+    }
+})
+```

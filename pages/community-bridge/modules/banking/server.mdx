@@ -1,0 +1,43 @@
+# Banking
+The Banking module provides server-side bank account management.
+
+## Server Functions
+
+### GetAccountMoney
+
+Returns the balance of a specific bank account.
+
+```lua
+local balance = Bridge.Banking.GetAccountMoney(accountName)
+-- Returns: number
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| accountName | string | Account name / identifier |
+
+### AddAccountMoney
+
+Adds money to a bank account.
+
+```lua
+Bridge.Banking.AddAccountMoney(accountName, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| accountName | string | Account name / identifier |
+| amount | number | Amount to add |
+
+### RemoveAccountMoney
+
+Removes money from a bank account.
+
+```lua
+Bridge.Banking.RemoveAccountMoney(accountName, amount)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| accountName | string | Account name / identifier |
+| amount | number | Amount to remove |

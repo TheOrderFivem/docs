@@ -1,0 +1,47 @@
+# Clothing — Client
+
+## OpenMenu
+
+Opens the clothing/appearance customization menu.
+
+```lua
+Bridge.Clothing.OpenMenu()
+```
+
+## IsMale
+
+Returns whether the player character is male.
+
+```lua
+local male = Bridge.Clothing.IsMale()
+-- Returns: boolean
+```
+
+## GetAppearance
+
+Returns the player's current appearance data.
+
+```lua
+local appearance = Bridge.Clothing.GetAppearance()
+-- Returns: table
+```
+
+## SetAppearance
+
+Applies appearance data to the player.
+
+```lua
+Bridge.Clothing.SetAppearance(appearance)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| appearance | table | Appearance data table |
+
+## RestoreAppearance
+
+Restores the player's saved appearance from the database.
+
+```lua
+Bridge.Clothing.RestoreAppearance()
+```

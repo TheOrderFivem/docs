@@ -1,0 +1,38 @@
+# Input
+The Input module provides client-side input dialog prompts. Bridges ox_lib, lation_ui, and qb-input.
+
+## Client Functions
+
+### Open
+
+Opens an input dialog and returns the submitted data.
+
+```lua
+local result = Bridge.Input.Open(title, data, isQBFormat, submitText)
+-- Returns: table | nil (nil if cancelled)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| title | string | Dialog title |
+| data | table | Array of input field definitions |
+| isQBFormat | boolean | Whether data is in QB-style format (optional) |
+| submitText | string | Submit button text (optional) |
+
+#### Input Field Format
+
+```lua
+local result = Bridge.Input.Open('Player Info', {
+    { type = 'input', label = 'Name', placeholder = 'Enter name', required = true },
+    { type = 'number', label = 'Age', placeholder = 'Enter age' },
+    { type = 'select', label = 'Gender', options = {
+        { value = 'male', label = 'Male' },
+        { value = 'female', label = 'Female' }
+    }},
+    { type = 'checkbox', label = 'Agree to terms' }
+})
+
+if result then
+    print(result[1], result[2]) -- name, age
+end
+```

@@ -1,0 +1,81 @@
+# Cutscenes
+The Cutscene library provides cutscene creation and playback with camera control.
+
+**Side:** Client
+
+## Functions
+
+### Create
+
+Creates a cutscene with a sequence of camera positions and actions.
+
+```lua
+Bridge.Cutscene.Create(options)
+```
+
+#### Options
+
+```lua
+Bridge.Cutscene.Create({
+    id = 'my_cutscene',
+    scenes = {
+        {
+            coords = vector3(100.0, 200.0, 30.0),
+            rotation = vector3(-10.0, 0.0, 180.0),
+            fov = 60.0,
+            duration = 3000,
+            easing = 'linear',       -- Transition easing
+            onStart = function()
+                print('Scene 1 started')
+            end
+        },
+        {
+            coords = vector3(105.0, 205.0, 32.0),
+            rotation = vector3(-5.0, 0.0, 200.0),
+            fov = 50.0,
+            duration = 4000,
+            easing = 'easeInOutQuad'
+        }
+    },
+    onComplete = function()
+        print('Cutscene finished')
+    end
+})
+```
+
+### Play
+
+Plays a registered cutscene.
+
+```lua
+Bridge.Cutscene.Play(id)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Cutscene ID |
+
+### Stop
+
+Stops a playing cutscene and restores the camera.
+
+```lua
+Bridge.Cutscene.Stop(id)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Cutscene ID |
+
+### IsPlaying
+
+Checks if a cutscene is currently playing.
+
+```lua
+local playing = Bridge.Cutscene.IsPlaying(id)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Cutscene ID |

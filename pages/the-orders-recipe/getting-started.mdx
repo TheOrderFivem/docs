@@ -1,0 +1,105 @@
+# Getting Started
+
+
+
+This guide will walk you through installing The Orders Recipe using txAdmin.
+
+> ⚠️ **Warning:** Installing a recipe will wipe existing server files and database data. Make sure to backup any important data before proceeding.
+
+
+---
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- A FiveM server with **txAdmin** access
+- **MySQL database** (can be set up during installation)
+- At least **2GB** of storage space
+- **Git** installed on your server machine
+
+---
+
+## Installation
+
+
+
+### Open txAdmin
+
+Navigate to your txAdmin panel at `http://your-server-ip:40120`
+
+### Start Recipe Installation
+
+1. Go to **Server** → **Deploy** or click **Setup** if this is a new server
+2. Select **Remote URL** as your deployment source
+3. Enter the recipe URL:
+
+```
+https://raw.githubusercontent.com/TheOrderFivem/txAdminRecipe/main/recipe.yaml
+```
+
+### Configure Settings
+
+Follow the txAdmin prompts to:
+- Set your server name
+- Configure database connection
+- Set server variables (license key, etc.)
+
+### Wait for Installation
+
+txAdmin will:
+- Download all required resources
+- Set up the database tables
+- Configure the server.cfg
+- Prepare all dependencies
+
+### Start Your Server
+
+Once installation is complete:
+1. Review the generated `server.cfg`
+2. Click **Start Server** in txAdmin
+3. Join your server and verify everything works!
+
+
+
+---
+
+## Post-Installation
+
+After successful installation:
+
+### Verify Resources
+Check txAdmin's resource list to ensure all resources are started without errors.
+
+### Test Core Features
+- Character creation
+- Inventory system
+- Job system
+- Basic interactions
+
+### Customize Configuration
+Review and adjust configurations in:
+- `server.cfg`
+- Individual resource configs
+- Database settings
+
+---
+
+## Common Issues
+
+### Database Connection Failed
+Ensure your MySQL credentials are correct and the database server is running.
+
+### Resources Not Starting
+Check for missing dependencies or configuration errors in the txAdmin console.
+
+### Permission Denied
+Verify file permissions and that txAdmin has write access to the server directory.
+
+---
+
+## Need Help?
+
+- Join our [Discord](https://discord.gg/MukwBuJjP7) for community support
+- Check the [GitHub Issues](https://github.com/TheOrderFivem/txAdminRecipe/issues) for known problems
+- Review the [Video Tutorials](/the-orders-recipe/video-tutorials) for visual guidance

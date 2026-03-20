@@ -1,0 +1,27 @@
+# Phone — Server
+
+## GetPlayerPhone
+
+Returns a player's phone number.
+
+```lua
+local phone = Bridge.Phone.GetPlayerPhone(src)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+## SendEmail
+
+Sends an in-game email to a player from the server.
+
+```lua
+Bridge.Phone.SendEmail(src, emailData)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| emailData | table | Email data table |

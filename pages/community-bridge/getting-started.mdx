@@ -1,0 +1,116 @@
+# Getting Started
+
+## Prerequisites
+
+- [ox_lib](https://github.com/overextended/ox_lib)
+- [oxmysql](https://github.com/overextended/oxmysql)
+- FiveM server artifact 6116+
+- OneSync enabled
+
+## Installation
+
+1. Download the [latest release](https://github.com/TheOrderFivem/community_bridge/releases)
+2. Extract to your resources folder
+3. Add to your `server.cfg` using the start order below
+
+## Server Configuration
+
+Community Bridge must be started **after** your framework, inventory, and any other bridged resources so it can detect them automatically.
+
+```cfg
+# Start your framework first (if using one)
+ensure qb-core          # or es_extended, etc.
+
+# Start inventory/other resources
+ensure qb-inventory     # or ox_inventory, qs-inventory, etc.
+
+# Start Community Bridge after all bridged resources
+ensure community_bridge
+
+# Start your custom resources that use Community Bridge
+ensure your-custom-resource
+```
+
+> **Start Order:** Place Community Bridge **after** your framework, inventory, and any other resources it bridges. Resources that **use** Community Bridge should be started **after** it.
+
+## Configuration
+
+Community Bridge uses three config files in the `settings/` folder.
+
+### Shared Config (`settings/sharedConfig.lua`)
+
+```lua
+BridgeSharedConfig = {}
+BridgeSharedConfig.Lang          = "auto"   -- Language locale (en, fr, de, etc.) or "auto"
+BridgeSharedConfig.DebugLevel    = 0        -- 0 = none, 1 = some, 2 = verbose
+BridgeSharedConfig.Notify        = "auto"   -- auto | ox_lib | okokNotify | mythic_notify | etc.
+BridgeSharedConfig.HelpText      = "auto"   -- auto | ox_lib | jg-textui | lation_ui | etc.
+BridgeSharedConfig.Phone         = "auto"   -- auto | qs-smartphone | lb-phone | gksphone
+BridgeSharedConfig.Skills        = "auto"   -- auto | OT_skills | evolent_skills | pickle_xp
+```
+
+### Client Config (`settings/clientConfig.lua`)
+
+```lua
+BridgeClientConfig = {}
+BridgeClientConfig.InputSystem       = "auto"   -- auto | ox_lib | lation_ui | qb-input
+BridgeClientConfig.MenuSystem        = "auto"   -- auto | ox_lib | wasabi_uikit | lation_ui | qb-menu
+BridgeClientConfig.ProgressBarSystem = "auto"   -- auto | ox_lib | wasabi_uikit | lation_ui | etc.
+BridgeClientConfig.VehicleKey        = "auto"   -- auto | qb-vehiclekeys | MrNewbVehicleKeys | etc.
+BridgeClientConfig.Fuel              = "auto"   -- auto | LegacyFuel | ox_fuel | ps-fuel | etc.
+BridgeClientConfig.TargetSystem      = "auto"   -- auto | ox_target | qb-target | sleepless_interact
+BridgeClientConfig.Debug             = false
+```
+
+### Server Config (`settings/serverConfig.lua`)
+
+```lua
+BridgeServerConfig = {}
+BridgeServerConfig.MaxInventorySlots = 50
+BridgeServerConfig.LogSystem    = "none"    -- none | built-in | qb | fivemerr | fivemanage | ox_lib
+BridgeServerConfig.WebhookURL   = ""        -- Required if LogSystem = "built-in"
+BridgeServerConfig.FivemerrApiKey = ""       -- Required if LogSystem = "fivemerr"
+```
+
+> All settings default to `"auto"`, which auto-detects your installed resources. Only change them if you need to force a specific integration.
+
+## Usage
+
+Access the Bridge object from any resource:
+
+```lua
+-- Get the full Bridge table
+local Bridge = exports['community_bridge']:Bridge()
+
+-- Or access a specific module directly
+local Inventory = exports['community_bridge']:Inventory()
+local Framework = exports['community_bridge']:Framework()
+```
+
+### Example — Server Script
+
+```lua
+local Bridge = exports['community_bridge']:Bridge()
+
+RegisterCommand('givebread', function(source, args)
+    Bridge.Inventory.AddItem(source, 'bread', 5)
+    Bridge.Notify.SendNotification(source, 'Shop', 'You received 5 bread!', 'success', 5000)
+end)
+```
+
+### Example — Client Script
+
+```lua
+local Bridge = exports['community_bridge']:Bridge()
+
+RegisterCommand('myinfo', function()
+    local name = Bridge.Framework.GetPlayerName()
+    local job = Bridge.Framework.GetPlayerJobData()
+    print(('Name: %s | Job: %s'):format(name, job.name))
+end)
+```
+
+## Next Steps
+
+- [Modules](/community-bridge/modules) — Framework, Inventory, Notify, and more
+- [Libraries](/community-bridge/libraries) — Callback, Markers, Entities, and more

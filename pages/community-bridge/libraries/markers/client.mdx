@@ -1,0 +1,48 @@
+# Markers — Client
+
+## Create
+
+Creates a marker that renders when the player is within range.
+
+```lua
+local marker = Bridge.Marker.Create(options)
+-- Returns: marker object
+```
+
+### Options
+
+```lua
+Bridge.Marker.Create({
+    id = 'my_marker',
+    type = 1,                    -- Marker type (GTA marker types 0-43)
+    coords = vector3(100.0, 200.0, 30.0),
+    scale = vector3(1.0, 1.0, 1.0),
+    color = { r = 255, g = 0, b = 0, a = 200 },
+    rotation = vector3(0.0, 0.0, 0.0),
+    distance = 50.0,             -- Render distance
+    bob = false,                 -- Bobbing animation
+    rotate = false,              -- Auto-rotate
+    faceCamera = false,
+    onEnter = function(marker)
+        print('Entered marker')
+    end,
+    onExit = function(marker)
+        print('Exited marker')
+    end,
+    inside = function(marker)
+        -- Called each frame while inside
+    end
+})
+```
+
+## Remove
+
+Removes a marker by ID.
+
+```lua
+Bridge.Marker.Remove(id)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Marker ID |

@@ -1,0 +1,66 @@
+# Animation
+The Animation library provides animation playback and management for peds.
+
+**Side:** Client
+
+## Functions
+
+### Play
+
+Plays an animation on a ped.
+
+```lua
+Bridge.Anim.Play(ped, dict, anim, flag, duration, blendIn, blendOut, playbackRate, lockX, lockY, lockZ)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| ped | number | Ped entity handle |
+| dict | string | Animation dictionary |
+| anim | string | Animation name |
+| flag | number | Animation flag (optional, default 0) |
+| duration | number | Duration in ms (optional, -1 for full) |
+| blendIn | number | Blend in speed (optional) |
+| blendOut | number | Blend out speed (optional) |
+| playbackRate | number | Playback rate (optional) |
+| lockX | boolean | Lock X movement (optional) |
+| lockY | boolean | Lock Y movement (optional) |
+| lockZ | boolean | Lock Z movement (optional) |
+
+### Stop
+
+Stops an animation on a ped.
+
+```lua
+Bridge.Anim.Stop(ped, dict, anim)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| ped | number | Ped entity handle |
+| dict | string | Animation dictionary |
+| anim | string | Animation name |
+
+### IsPlaying
+
+Checks if a ped is playing a specific animation.
+
+```lua
+local playing = Bridge.Anim.IsPlaying(ped, dict, anim)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| ped | number | Ped entity handle |
+| dict | string | Animation dictionary |
+| anim | string | Animation name |
+
+## Example
+
+```lua
+local ped = PlayerPedId()
+Bridge.Anim.Play(ped, 'amb@world_human_drinking@coffee@male@idle_a', 'idle_c', 49)
+Wait(3000)
+Bridge.Anim.Stop(ped, 'amb@world_human_drinking@coffee@male@idle_a', 'idle_c')
+```

@@ -1,0 +1,82 @@
+# Scaleform
+The Scaleform library provides GTA V scaleform movie rendering utilities.
+
+**Side:** Client
+
+## Functions
+
+### Load
+
+Loads a scaleform movie by name.
+
+```lua
+local scaleform = Bridge.Scaleform.Load(scaleformName)
+-- Returns: number (scaleform handle)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| scaleformName | string | Scaleform movie name |
+
+### Unload
+
+Unloads a loaded scaleform.
+
+```lua
+Bridge.Scaleform.Unload(scaleform)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| scaleform | number | Scaleform handle |
+
+### RenderFullscreen
+
+Renders a scaleform fullscreen.
+
+```lua
+Bridge.Scaleform.RenderFullscreen(scaleform)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| scaleform | number | Scaleform handle |
+
+### CallFunction
+
+Calls a function on a scaleform movie.
+
+```lua
+Bridge.Scaleform.CallFunction(scaleform, functionName, ...)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| scaleform | number | Scaleform handle |
+| functionName | string | Function name to call |
+| ... | any | Function arguments |
+
+### SetupInstructionalButtons
+
+Creates and configures an instructional buttons scaleform.
+
+```lua
+local scaleform = Bridge.Scaleform.SetupInstructionalButtons(buttons)
+-- Returns: number (scaleform handle)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| buttons | table | Array of button definitions `{ { control, text }, ... }` |
+
+### RenderInstructionalButtons
+
+Renders an instructional buttons scaleform (call each frame).
+
+```lua
+Bridge.Scaleform.RenderInstructionalButtons(scaleform)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| scaleform | number | Scaleform handle |

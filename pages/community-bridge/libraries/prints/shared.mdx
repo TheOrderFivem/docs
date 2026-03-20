@@ -1,0 +1,66 @@
+# Prints
+The Prints library provides colour-coded console output with log-level prefixes. Tables are automatically pretty-printed as JSON.
+
+**Side:** Shared (Client & Server)
+
+## Functions
+
+### Info
+
+Prints an informational message (cyan).
+
+```lua
+Bridge.Prints.Info(...)
+```
+
+### Warn
+
+Prints a warning message (yellow).
+
+```lua
+Bridge.Prints.Warn(...)
+```
+
+### Error
+
+Prints an error message (red).
+
+```lua
+Bridge.Prints.Error(...)
+```
+
+### Debug
+
+Prints a debug message (green).
+
+```lua
+Bridge.Prints.Debug(...)
+```
+
+All functions accept any number of arguments. Each argument is formatted according to its type:
+
+| Type | Formatting |
+|------|-----------|
+| table | Pretty-printed JSON (sorted keys, indented) |
+| number / boolean | Converted to string |
+| nil | Displayed as `"nil Value"` |
+| function | Displayed as the `tostring` representation |
+| other | Converted via `tostring` |
+
+## Example
+
+```lua
+Bridge.Prints.Info('Server started on port', 30120)
+Bridge.Prints.Warn('Player inventory full', {name = 'John', slots = 40})
+Bridge.Prints.Error('Failed to load vehicle', vehicleId)
+Bridge.Prints.Debug('Query result', rows)
+```
+
+Console output:
+
+```
+ [INFO]  Server started on port  30120
+ [WARN]  Player inventory full  { "name": "John", "slots": 40 }
+ [ERROR] Failed to load vehicle  12345
+ [DEBUG] Query result  [...]
+```

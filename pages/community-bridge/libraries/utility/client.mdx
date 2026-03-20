@@ -1,0 +1,70 @@
+# Utility
+The Utility library provides common client-side helper functions.
+
+**Side:** Client
+
+## Functions
+
+### LoadModel
+
+Loads a model and waits until it's available.
+
+```lua
+Bridge.Utility.LoadModel(model)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| model | string \| number | Model name or hash |
+
+### LoadAnimDict
+
+Loads an animation dictionary and waits until it's available.
+
+```lua
+Bridge.Utility.LoadAnimDict(dict)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| dict | string | Animation dictionary name |
+
+### LoadPtfxAsset
+
+Loads a particle effect asset.
+
+```lua
+Bridge.Utility.LoadPtfxAsset(asset)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| asset | string | PTFX asset name |
+
+### GetCommandKey
+
+Returns the key binding string for a registered command/key mapping.
+
+```lua
+local key = Bridge.Utility.GetCommandKey(command)
+-- Returns: string (e.g. 'E', 'MOUSE_LEFT')
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| command | string | Command name (e.g. '+place_object') |
+
+### DrawText3D
+
+Draws 3D text at a world position (call each frame).
+
+```lua
+Bridge.Utility.DrawText3D(coords, text, scale, font)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| coords | vector3 | World position |
+| text | string | Text to display |
+| scale | number | Text scale (optional) |
+| font | number | Font ID (optional) |

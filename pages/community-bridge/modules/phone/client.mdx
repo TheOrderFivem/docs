@@ -1,0 +1,24 @@
+# Phone — Client
+
+## SendEmail
+
+Sends an in-game email to the local player.
+
+```lua
+Bridge.Phone.SendEmail(emailData)
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| emailData | table | Email data table |
+
+### Email Data Format
+
+```lua
+Bridge.Phone.SendEmail({
+    to = 'player@email.com',
+    sender = 'Police Department',
+    subject = 'Your Fine',
+    message = 'You have been fined for speeding.'
+})
+```
