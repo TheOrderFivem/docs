@@ -56,8 +56,10 @@ const config: DocsThemeConfig = {
     ),
   },
   head: useHead,
-  primaryHue: { dark: 200, light: 200 },
-  primarySaturation: { dark: 100, light: 100 },
+  color: {
+    hue: 200,
+    saturation: 100,
+  },
   sidebar: {
     defaultMenuCollapseLevel: 1,
     toggleButton: true,
