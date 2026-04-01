@@ -8,7 +8,16 @@ Returns the framework resource name.
 
 ```lua
 local name = Bridge.Framework.GetResourceName()
--- Returns: string
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Framework module resource. Used for internal identification. Always returns `"default"` for the built-in Framework module.
+
+**Example:**
+```lua
+local resourceName = Bridge.Framework.GetResourceName()
+print('Framework resource: ' .. resourceName)
 ```
 
 ### GetIsFrameworkAdmin
@@ -422,6 +431,80 @@ local sources = Bridge.Framework.GetPlayerSourcesByJob(job)
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | job | string | Job name |
+
+### AddJobCount
+
+Registers a player to a job in the job count tracking system.
+
+```lua
+local success = Bridge.Framework.AddJobCount(src, jobName)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| jobName | string | Job name to register |
+
+**Description:**
+This function tracks when a player joins a job. It updates the internal job count cache and global state. Returns `true` if successfully added, `false` if already registered or invalid parameters.
+
+**Example:**
+```lua
+if Bridge.Framework.AddJobCount(src, 'police') then
+    print('Player registered to police job')
+end
+```
+
+### SearchJobCountBySource
+
+Returns the current job name for a player in the job count system.
+
+```lua
+local jobName = Bridge.Framework.SearchJobCountBySource(src)
+-- Returns: string | nil
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+
+**Description:**
+Looks up a player's current job from the internal job count tracking system. Returns the job name if found, or `nil` if the player is not registered to any job.
+
+**Example:**
+```lua
+local job = Bridge.Framework.SearchJobCountBySource(src)
+if job then
+    print('Player is registered to: ' .. job)
+end
+```
+
+### RemoveJobCount
+
+Unregisters a player from a job in the job count tracking system.
+
+```lua
+local success = Bridge.Framework.RemoveJobCount(src, jobName)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| src | number | Player server ID |
+| jobName | string \| nil | Job name to unregister from (optional, auto-detected if not provided) |
+
+**Description:**
+Removes a player from job tracking. If `jobName` is not provided, the function will automatically detect the player's current job. This function is called automatically when a player changes jobs or disconnects. Returns `true` on success, `false` if player or job not found.
+
+**Example:**
+```lua
+-- Remove from specific job
+Bridge.Framework.RemoveJobCount(src, 'police')
+
+-- Or auto-detect and remove from current job
+Bridge.Framework.RemoveJobCount(src)
+```
 
 ---
 

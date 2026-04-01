@@ -3,6 +3,18 @@ The ProgressBar module provides client-side progress bar UI. Bridges ox_lib, was
 
 ## Client Functions
 
+### GetResourceName
+
+Returns the progress bar resource name.
+
+```lua
+local name = Bridge.ProgressBar.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the ProgressBar module resource. Used for internal identification. Always returns `"default"` for the built-in ProgressBar module.
+
 ### Open
 
 Displays a progress bar and calls a callback on completion.

@@ -3,6 +3,18 @@ The Zones module provides zone creation and management. Currently bridges ox_lib
 
 ## Client Functions
 
+### GetResourceName
+
+Returns the zones resource name.
+
+```lua
+local name = Bridge.Zones.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Zones module resource. Used for internal identification. Always returns `"default"` for the built-in Zones module.
+
 ### Create
 
 Creates a new zone.

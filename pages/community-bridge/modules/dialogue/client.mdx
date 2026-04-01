@@ -3,6 +3,18 @@ The Dialogue module provides a client-side NPC dialogue system with branching co
 
 ## Client Functions
 
+### GetResourceName
+
+Returns the dialogue resource name.
+
+```lua
+local name = Bridge.Dialogue.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Dialogue module resource. Used for internal identification. Always returns `"default"` for the built-in Dialogue module.
+
 ### Open
 
 Opens a dialogue with an NPC or character.

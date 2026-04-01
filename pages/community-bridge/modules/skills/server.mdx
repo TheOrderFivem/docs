@@ -5,13 +5,33 @@
 Creates a skill definition.
 
 ```lua
-Bridge.Skills.Create(skillName, skillData)
+Bridge.Skills.Create(name, maxLevel, baseXP)
 ```
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| skillName | string | Skill name |
-| skillData | table | Skill definition data |
+| name | string | Skill name |
+| maxLevel | number | Maximum level for this skill (default: 99) |
+| baseXP | number | Base XP amount for this skill (default: 50) |
+
+**Returns:** `table` - The created skill definition
+
+**Example:**
+```lua
+Bridge.Skills.Create('farming', 99, 50)
+```
+
+## GetResourceName
+
+Returns the skills resource name.
+
+```lua
+local name = Bridge.Skills.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Skills module resource. Used for internal identification. Always returns `"default"` for the built-in Skills module.
 
 ## GetSkillLevel
 
@@ -46,42 +66,76 @@ local xp = Bridge.Skills.GetXP(src, skillName)
 Adds XP to a player's skill.
 
 ```lua
-Bridge.Skills.AddXP(src, skillName, amount)
+local success, newLevel, currentXP = Bridge.Skills.AddXP(src, skillName, xp)
+-- Returns: boolean, number, number
 ```
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | src | number | Player server ID |
 | skillName | string | Skill name |
-| amount | number | XP to add |
+| xp | number | XP to add (if 0 or nil, uses scaled default based on current level) |
+
+**Returns:**
+- `success` (boolean): Whether the XP was successfully added
+- `newLevel` (number): The player's new skill level after XP addition
+- `currentXP` (number): The current XP progress within the level (0 to next level requirement)
+
+**Example:**
+```lua
+local success, level, xp = Bridge.Skills.AddXP(src, 'fishing', 100)
+if success then
+    print('Player is now level ' .. level)
+end
+```
 
 ## SetSkillLevel
 
 Sets a player's skill level directly.
 
 ```lua
-Bridge.Skills.SetSkillLevel(src, skillName, level)
+local success = Bridge.Skills.SetSkillLevel(src, skillName, level)
+-- Returns: boolean
 ```
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | src | number | Player server ID |
 | skillName | string | Skill name |
-| level | number | Level to set |
+| level | number | Level to set (clamped between 1-99) |
+
+**Returns:** `boolean` - Whether the level was successfully set
+
+**Example:**
+```lua
+if Bridge.Skills.SetSkillLevel(src, 'fishing', 25) then
+    print('Level set successfully')
+end
+```
 
 ## SetXP
 
 Sets a player's XP directly.
 
 ```lua
-Bridge.Skills.SetXP(src, skillName, xp)
+local success = Bridge.Skills.SetXP(src, skillName, xp)
+-- Returns: boolean
 ```
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | src | number | Player server ID |
 | skillName | string | Skill name |
-| xp | number | XP to set |
+| xp | number | XP to set (0 or higher) |
+
+**Returns:** `boolean` - Whether the XP was successfully set
+
+**Example:**
+```lua
+if Bridge.Skills.SetXP(src, 'fishing', 500) then
+    print('XP set successfully')
+end
+```
 
 ## GetXPForLevel
 
@@ -96,9 +150,12 @@ local xp = Bridge.Skills.GetXPForLevel(level)
 |-----------|------|-------------|
 | level | number | Target level |
 
+**Description:**
+Uses a RuneScape-style XP algorithm with caching for performance. Returns cumulative XP needed from level 1 to reach the specified level.
+
 ## GetXPRequiredForLevel
 
-Returns the additional XP needed to go from current level to next.
+Returns the additional XP needed to progress from one level to the next.
 
 ```lua
 local xp = Bridge.Skills.GetXPRequiredForLevel(level)
@@ -109,17 +166,28 @@ local xp = Bridge.Skills.GetXPRequiredForLevel(level)
 |-----------|------|-------------|
 | level | number | Current level |
 
+**Description:**
+Returns the cumulative XP requirement between the specified level and the next level. For level 1, returns 83 XP.
+
 ## GetScaledXP
 
-Returns XP scaled according to the skill's scaling formula.
+Returns XP scaled according to a player's level.
 
 ```lua
-local scaled = Bridge.Skills.GetScaledXP(src, skillName, amount)
+local scaled = Bridge.Skills.GetScaledXP(baseXP, playerLevel)
 -- Returns: number
 ```
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| src | number | Player server ID |
-| skillName | string | Skill name |
-| amount | number | Base XP amount |
+| baseXP | number | Base XP amount to scale |
+| playerLevel | number | Player's current skill level |  
+
+**Description:**
+Scales base XP according to the formula: `floor(baseXP * (1 + playerLevel * 0.05))`. Higher levels receive more XP per action.
+
+**Example:**
+```lua
+local scaled = Bridge.Skills.GetScaledXP(50, 10)
+print('Scaled XP: ' .. scaled) -- Outputs higher value due to level bonus
+```

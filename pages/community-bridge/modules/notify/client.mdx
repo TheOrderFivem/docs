@@ -1,5 +1,17 @@
 # Notify — Client
 
+## GetResourceName
+
+Returns the notify resource name.
+
+```lua
+local name = Bridge.Notify.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Notify module resource. Used for internal identification. Always returns `"default"` for the built-in Notify module.
+
 ## SendNotification
 
 Sends a notification to the local player.

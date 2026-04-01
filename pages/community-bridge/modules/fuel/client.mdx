@@ -3,6 +3,18 @@ The Fuel module provides client-side vehicle fuel management. Bridges LegacyFuel
 
 ## Client Functions
 
+### GetResourceName
+
+Returns the fuel resource name.
+
+```lua
+local name = Bridge.Fuel.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Fuel module resource. Used for internal identification. Always returns `"default"` for the built-in Fuel module.
+
 ### GetFuel
 
 Returns the fuel level of a vehicle.

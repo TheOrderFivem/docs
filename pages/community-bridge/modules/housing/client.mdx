@@ -1,6 +1,20 @@
 # Housing
 The Housing module provides events for housing system integration.
 
+## Functions
+
+### GetResourceName
+
+Returns the housing resource name.
+
+```lua
+local name = Bridge.Housing.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Housing module resource. Used for internal identification. Always returns `"default"` for the built-in Housing module.
+
 ## Client Events
 
 ### community_bridge:Client:OnPlayerInside

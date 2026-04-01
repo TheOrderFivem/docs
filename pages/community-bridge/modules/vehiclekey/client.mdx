@@ -3,6 +3,18 @@ The VehicleKey module provides client-side vehicle key management. Bridges qb-ve
 
 ## Client Functions
 
+### GetResourceName
+
+Returns the vehicle key resource name.
+
+```lua
+local name = Bridge.VehicleKey.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the VehicleKey module resource. Used for internal identification. Always returns `"default"` for the built-in VehicleKey module.
+
 ### GiveKeys
 
 Gives keys for a vehicle to the local player.

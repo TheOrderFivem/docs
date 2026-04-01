@@ -3,6 +3,18 @@ The Menu module provides client-side context/list menus. Bridges ox_lib, wasabi_
 
 ## Client Functions
 
+### GetResourceName
+
+Returns the menu resource name.
+
+```lua
+local name = Bridge.Menu.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Menu module resource. Used for internal identification. Always returns `"default"` for the built-in Menu module.
+
 ### Open
 
 Opens a context or list menu.

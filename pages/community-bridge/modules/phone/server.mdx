@@ -1,5 +1,29 @@
 # Phone — Server
 
+## GetResourceName
+
+Returns the phone resource name.
+
+```lua
+local name = Bridge.Phone.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Phone module resource. Used for internal identification. Always returns `"default"` for the built-in Phone module.
+
+## GetPhoneName
+
+Returns the phone system resource name.
+
+```lua
+local phoneName = Bridge.Phone.GetPhoneName()
+-- Returns: string
+```
+
+**Description:**
+Returns the name of the underlying phone system being used (e.g., "qs-smartphone", "lb-phone", "gksphone"). This identifies which phone resource is configured in the bridge settings.
+
 ## GetPlayerPhone
 
 Returns a player's phone number.

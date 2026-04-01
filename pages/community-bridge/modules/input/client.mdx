@@ -3,6 +3,18 @@ The Input module provides client-side input dialog prompts. Bridges ox_lib, lati
 
 ## Client Functions
 
+### GetResourceName
+
+Returns the input resource name.
+
+```lua
+local name = Bridge.Input.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Input module resource. Used for internal identification. Always returns `"default"` for the built-in Input module.
+
 ### Open
 
 Opens an input dialog and returns the submitted data.

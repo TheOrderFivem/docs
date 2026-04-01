@@ -2,6 +2,18 @@
 
 ## Functions
 
+### GetResourceName
+
+Returns the inventory resource name.
+
+```lua
+local name = Bridge.Inventory.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Inventory module resource. Used for internal identification. Always returns `"default"` for the built-in Inventory module.
+
 ### GetItemInfo
 
 Returns item definition data.

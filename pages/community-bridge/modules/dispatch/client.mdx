@@ -1,5 +1,17 @@
 # Dispatch — Client
 
+## GetResourceName
+
+Returns the dispatch resource name.
+
+```lua
+local name = Bridge.Dispatch.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Dispatch module resource. Used for internal identification. Always returns `"default"` for the built-in Dispatch module.
+
 ## SendAlert
 
 Sends a dispatch alert from the client.

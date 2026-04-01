@@ -3,6 +3,18 @@ The Banking module provides server-side bank account management.
 
 ## Server Functions
 
+### GetResourceName
+
+Returns the banking resource name.
+
+```lua
+local name = Bridge.Banking.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Banking module resource. Used for internal identification. Always returns `"default"` for the built-in Banking module.
+
 ### GetAccountMoney
 
 Returns the balance of a specific bank account.

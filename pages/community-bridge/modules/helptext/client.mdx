@@ -1,5 +1,17 @@
 # HelpText — Client
 
+## GetResourceName
+
+Returns the helptext resource name.
+
+```lua
+local name = Bridge.HelpText.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the HelpText module resource. Used for internal identification. Always returns `"default"` for the built-in HelpText module.
+
 ## ShowHelpText
 
 Displays a help text notification on screen.

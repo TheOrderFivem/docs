@@ -1,5 +1,17 @@
 # Doorlock — Server
 
+## GetResourceName
+
+Returns the doorlock resource name.
+
+```lua
+local name = Bridge.Doorlock.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Doorlock module resource. Used for internal identification. Always returns `"default"` for the built-in Doorlock module.
+
 ## ToggleDoorLock
 
 Toggles a door's lock state.

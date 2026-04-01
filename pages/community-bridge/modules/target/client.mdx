@@ -3,6 +3,18 @@ The Target module provides entity and zone targeting. Bridges ox_target, qb-targ
 
 ## Client Functions
 
+### GetResourceName
+
+Returns the target resource name.
+
+```lua
+local name = Bridge.Target.GetResourceName()
+-- Returns: string (always "default")
+```
+
+**Description:**
+Returns the name of the Target module resource. Used for internal identification. Always returns `"default"` for the built-in Target module.
+
 ### AddLocalEntity
 
 Adds targeting options to a specific entity.
@@ -147,3 +159,101 @@ Bridge.Target.RemoveModel(model, labels)
 |-----------|------|-------------|
 | model | string \| number | Model name or hash |
 | labels | table | Array of option labels to remove |
+
+## Internal Utility Functions
+
+These functions are used internally for target interaction and condition evaluation. They are exported for advanced use cases.
+
+### GetCanInteract
+
+Retrieves the interaction object for a given ID.
+
+```lua
+local interact = Bridge.Target.GetCanInteract(id)
+-- Returns: table | nil
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Unique interaction ID |
+
+**Returns:** `table` containing interaction data, or `nil` if not found
+
+### CreateCanInteract
+
+Creates a new interaction handler with a custom condition callback.
+
+```lua
+local id = Bridge.Target.CreateCanInteract(callback)
+-- Returns: string
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| callback | function | Function that returns boolean to determine if interaction is allowed |
+
+**Returns:** `string` - Unique ID for the interaction handler
+
+**Description:**
+Creates an interaction condition handler. The callback function should return `true` if the target interaction should be allowed, `false` otherwise. The handler auto-resets after 1 second.
+
+**Example:**
+```lua
+local id = Bridge.Target.CreateCanInteract(function(entity)
+    local ped = PlayerPedId()
+    local distance = #(GetEntityCoords(ped) - GetEntityCoords(entity))
+    return distance < 5 -- Only allow interaction within 5 meters
+end)
+```
+
+### CanInteract
+
+Evaluates whether an interaction is allowed based on its condition handler.
+
+```lua
+local allowed = Bridge.Target.CanInteract(id, ...)
+-- Returns: boolean
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | string | Interaction handler ID |
+| ... | any | Arguments passed to the interaction condition callback |
+
+**Returns:** `boolean` - Whether interaction is allowed (true if handler doesn't exist)
+
+**Description:**
+Checks the condition callback for the given interaction ID. The first time called, it executes the callback with the provided arguments. Subsequent calls within 1 second return cached result.
+
+### FixOptions
+
+Processes target option tables to fix compatibility between different target systems.
+
+```lua
+local fixedOptions = Bridge.Target.FixOptions(options)
+-- Returns: table
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| options | table | Array of target option tables |
+
+**Returns:** `table` - Processed options array with normalized callbacks
+
+**Description:**
+Normalizes target options by:
+- Converting `action` callbacks to `onSelect`
+- Converting entity arguments to handle different target system signatures  
+- Processing `canInteract` callbacks through the condition handler system
+
+**Example:**
+```lua
+local options = {
+    {
+        label = 'Talk',
+        action = function(entity) print('Talking to ' .. entity) end,
+        canInteract = function(entity) return true end
+    }
+}
+local fixed = Bridge.Target.FixOptions(options)
+```
